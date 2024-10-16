@@ -1,7 +1,10 @@
-a, b = map(int, input().split())
-c = int(input())
 
-print((a + (b+c)//60) % 24, (b + c) % 60)
+# 이게 된다고??
+
+# a, b = map(int, input().split())
+# c = int(input())
+
+# print((a + (b+c)//60) % 24, (b + c) % 60)
 
 
 # restart 20241015
