@@ -1,3 +1,33 @@
+# 2480 처음 생각한 것
+a, b, c = map(int, input().split())
+
+dice = set({a, b, c})
+
+if len(dice) == 1:
+    print(10000 + (a * 1000))
+elif len(dice) == 2:
+    if a == b:
+        print(1000 + (a * 100))
+    elif b == c:
+        print(1000 + (b * 100))
+    elif a == c:
+        print(1000 + (c * 100))
+elif len(dice) == 3:
+    print(list(dice)[2] * 100)
+
+# 챗지피티가 첨삭해준 것
+a, b, c = map(int, input().split())
+dice = {a, b, c}
+if len(dice) == 1:
+    print(10000 + 1000 * a)
+elif len(dice) == 2:
+    # 조건부 표현식 (Conditional Expression) == 삼항 연산자(ternary operator)
+    common_value = a if a == b or a == c else b
+    print(1000 + common_value * 100)
+else:
+    print(max(dice) * 100)
+
+
 # 2525 오븐 시계
 # 이게 된다고??
 
@@ -30,8 +60,8 @@
 
 # print(d1[grade])
 
+"""
 
-'''
 # since 2020
 
 백준 코드 연습 및 기록 남겨놓기 
@@ -206,4 +236,4 @@ n=int(input())
 for i in range(n):
     print(' '*(n-i-1) +'*'*(i+1))
 
-'''
+"""
