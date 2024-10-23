@@ -1,15 +1,73 @@
-# 5597 첫 시도
-set_1 = [x for x in range(1, 6)]
-set_2 = []
-for i in range(4):
-    set_2.append(int(input()))
+"""
 
-diff = list(set(set_1) - set(set_2))
+# 10807 첫 시도
+n = int(input()) #이 단계는 파이썬에선 불필요 동적 라스트이기 때문
+m = map(int, input().split())
+l = int(input())
+cnt = 0
+for i in m:
+    if l == i:
+        cnt += 1
+print(cnt)
+
+# 10807 첨삭 1
+n = int(input())  
+numbers = list(map(int, input().split()))  
+target = int(input())  
+count = 0  
+for num in numbers:
+    if num == target:
+        count += 1  # 같으면 count를 1 증가
+print(count)
+
+# 10807 첨삭 2
+n = int(input())  
+numbers = list(map(int, input().split()))  
+target = int(input())  
+print(numbers.count(target))
+
+
+
+
+# 5597 첫 시도? 와~시간 좀 걸리네 많이도 아이고;;
+set_1 = [x for x in range(1, 31)]
+set_2 = []
+for i in range(28):
+    set_2.append(int(input()))
+diff = sorted(list(set(set_1) - set(set_2)))
 print(diff[0])
 print(diff[1])
 
+# 5597 첨삭받은 것
+set_1 = set(range(1, 31))
+set_2 = set()
+print("28개의 숫자를 하나씩 입력하세요:")
+for _ in range(28):
+    num = int(input())  # 숫자를 한 줄씩 입력받음
+    set_2.add(num)  # 입력받은 숫자를 집합에 추가
+missing_numbers = sorted(set_1 - set_2)
+print(missing_numbers[0])
+print(missing_numbers[1])
 
-"""
+# 5597 첨삭받은 것 두 번째꺼
+set_1 = set(range(1, 31))
+set_2 = set()
+print("28개의 숫자를 하나씩 입력하세요:")
+for _ in range(28):
+    num = int(input())  # 숫자를 한 줄씩 입력받음
+    set_2.add(num)  # 입력받은 숫자를 집합에 추가
+missing_numbers = set_1 - set_2
+print(min(missing_numbers))
+print(max(missing_numbers))
+
+# 5597 숏코드를 가독성있는 코드로 바꾼 버전
+all_numbers = set(range(1, 31))
+input_numbers = set(map(int, open(0)))
+missing_numbers = all_numbers ^ input_numbers
+print(*missing_numbers)
+
+
+
 # 9086 첫 시도
 # n = int(input())
 # for i in range(n):
