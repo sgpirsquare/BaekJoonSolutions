@@ -1,3 +1,14 @@
+# 5597 첫 시도
+set_1 = [x for x in range(1, 6)]
+set_2 = []
+for i in range(4):
+    set_2.append(int(input()))
+
+diff = list(set(set_1) - set(set_2))
+print(diff[0])
+print(diff[1])
+
+
 """
 # 9086 첫 시도
 # n = int(input())
