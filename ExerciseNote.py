@@ -1,5 +1,54 @@
 """
 
+# 2738 행렬 덧셈
+n, m = map(int, input().split())
+mat_1 = []
+mat_2 = []
+for i in range(n):
+    mat_1.append(list(map(int, input().split())))
+for i in range(n):
+    mat_2.append(list(map(int, input().split())))
+for i in range(n):
+    add_mat = []
+    for j in range(m):
+        add_mat.append(mat_1[i][j] + mat_2[i][j])
+    print(*add_mat)
+
+# 2738 개선된 버전 list complehension
+n, m = map(int, input().split())
+mat_1 = [list(map(int, input().split())) for _ in range(n)]
+mat_2 = [list(map(int, input().split())) for _ in range(n)]
+for i in range(n):
+    add_mat = [mat_1[i][j] + mat_2[i][j] for j in range(m)]
+    print(*add_mat)
+
+# 10871 첫 시도
+arr = []
+n, a = map(int, input().split())
+numbers = list(map(int, input().split()))
+for i in numbers:
+    if a > i:
+        arr.append(i)
+print(*arr)
+
+# 10871 4년 전에 푼 소스가 있네
+n, x = map(int, input().split())
+a = map(int, input().split())
+b = []
+for i in a:
+    if x > i:
+        b.append(i)
+for i in b:
+    print(i, end=" ")
+
+# 10871 챗지피티 개선시키기
+n, a = map(int, input().split())
+numbers = list(map(int, input().split()))
+arr = [i for i in numbers if i < a]
+print(*arr)
+# 같은 효과인 것
+print(' '.join(map(str, arr)))
+
 # 10807 첫 시도
 n = int(input()) #이 단계는 파이썬에선 불필요 동적 라스트이기 때문
 m = map(int, input().split())
@@ -25,9 +74,6 @@ n = int(input())
 numbers = list(map(int, input().split()))  
 target = int(input())  
 print(numbers.count(target))
-
-
-
 
 # 5597 첫 시도? 와~시간 좀 걸리네 많이도 아이고;;
 set_1 = [x for x in range(1, 31)]
@@ -148,8 +194,8 @@ else:
     print(max(dice) * 100)
 
 
-2525 오븐 시계
-이게 된다고??
+# 2525 오븐 시계
+# 이게 된다고??
 
 a, b = map(int, input().split())
 c = int(input())
@@ -157,12 +203,12 @@ c = int(input())
 print((a + (b+c)//60) % 24, (b + c) % 60)
 
 
-restart 20241015
+# restart 20241015
 
 
-1271 //와 /의 차이를 제대로 알고 있니?
+# 1271 //와 /의 차이를 제대로 알고 있니?
 
-4153
+# 4153
 import sys
 a,b,c = map(int, sys.stdin.readline())
 if a**2 + b**2 == c**2:
@@ -171,7 +217,7 @@ else:
     print("wrong")
 
 
-2754 학점계산
+# 2754 학점계산
 
 d1={
     "A+": 4.3, "A0": 4.0, "A-": 3.7, "B+": 3.3, "B0": 3.0, "B-": 2.7, "C+": 2.3, "C0": 2.0, "C-": 1.7, "D+": 1.3, "D0": 1.0, "D-": 0.7,"F": 0.0
@@ -184,8 +230,8 @@ print(d1[grade])
 
 # since 2020
 
-백준 코드 연습 및 기록 남겨놓기 
-다른 사람것도 참고하기
+# 백준 코드 연습 및 기록 남겨놓기 
+# 다른 사람것도 참고하기
 
 # 1546
 n = int(input())
