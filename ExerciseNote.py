@@ -1,5 +1,26 @@
-"""
+# 2675 문자열 반복
+# n = int(input())
+# for i in range(n):
+#     repeat_count, text = input().split()
+#     arr = []
+#     for j in range(len(text)):
+#         arr.append(int(repeat_count) * text[j])
+#     print(*arr, sep="")
 
+# python documentation
+# print(*objects, sep=' ', end='\n', file=None, flush=False)
+# result = ''.join(map(str, numbers))
+
+# 2675 개선해보자
+n = int(input())
+for _ in range(n):
+    repeat_count, text = input().split()
+    repeat_count = int(repeat_count)
+    result = "".join(char * repeat_count for char in text)
+
+    print(result)
+
+"""
 # 2738 행렬 덧셈
 n, m = map(int, input().split())
 mat_1 = []
@@ -21,6 +42,15 @@ mat_2 = [list(map(int, input().split())) for _ in range(n)]
 for i in range(n):
     add_mat = [mat_1[i][j] + mat_2[i][j] for j in range(m)]
     print(*add_mat)
+
+# 2738 개선된 버전 zip() 내장함수 활용
+n, m = map(int, input().split())
+mat_1 = [list(map(int, input().split())) for _ in range(n)]
+mat_2 = [list(map(int, input().split())) for _ in range(n)]
+
+for row_1, row_2 in zip(mat_1, mat_2):
+    add_rows = [a + b for a, b in zip(row_1, row_2)]
+    print(*add_rows)
 
 # 10871 첫 시도
 arr = []
