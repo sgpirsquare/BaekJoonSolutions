@@ -1,15 +1,51 @@
-# 2675 문자열 반복
-# n = int(input())
-# for i in range(n):
-#     repeat_count, text = input().split()
-#     arr = []
-#     for j in range(len(text)):
-#         arr.append(int(repeat_count) * text[j])
-#     print(*arr, sep="")
+"""
+# 4153
 
-# python documentation
-# print(*objects, sep=' ', end='\n', file=None, flush=False)
-# result = ''.join(map(str, numbers))
+# while True:
+#     a, b, c = map(int, input().split())
+#     if (a, b, c) == (0, 0, 0):
+#         break
+# # 아니 이 정렬 한 줄 빠졌다고...헉...
+# # 예시 입력만 믿었던 게 낭패로군
+# # 세 번의 길이만 준다고 했지 오름차순으로 준다고는 안 했으니 할 말은 없네
+#     sides = sorted([a, b, c])
+#     if sides[0] ** 2 + sides[1] ** 2 == sides[2] ** 2:
+#         print("right")
+#     else:
+#         print("wrong")
+
+# 4153 개선시키기
+
+
+def is_right_triangle(a, b, c):
+    max_side = max(a, b, c)
+    other_sides = [x for x in [a, b, c] if x != max_side]
+
+    return other_sides[0] ** 2 + other_sides[1] ** 2 == max_side**2
+
+
+while True:
+    a, b, c = map(int, input().split())
+    if (a, b, c) == (0, 0, 0):
+        break
+    if is_right_triangle(a, b, c):
+        print("right")
+    else:
+        print("wrong")
+
+
+# 2675 문자열 반복
+n = int(input())
+for i in range(n):
+    repeat_count, text = input().split()
+    arr = []
+    for j in range(len(text)):
+        arr.append(int(repeat_count) * text[j])
+    print(*arr, sep="")
+
+python documentation
+print(*objects, sep=' ', end='\n', file=None, flush=False)
+result = ''.join(map(str, numbers))
 
 # 2675 개선해보자
 n = int(input())
@@ -20,7 +56,6 @@ for _ in range(n):
 
     print(result)
 
-"""
 # 2738 행렬 덧셈
 n, m = map(int, input().split())
 mat_1 = []
