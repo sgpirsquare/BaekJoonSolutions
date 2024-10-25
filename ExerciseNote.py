@@ -1,4 +1,61 @@
 """
+# 10818 4년 전에 코딩 개선
+n=int(input())
+numbers=list(map(int,input().split()))
+if not numbers:
+    pass
+else:
+    min_val = max_val = numbers[0]
+for num in numbers[1:]:
+    if num > max_val:
+        max_val=num
+    if num < min_val:
+        min_val=num
+print(min_val,max_val)
+
+# 10818 맞췄다!
+n = int(input()) # 파이썬에선 사실 필요없지만 배열 길이를 정해야하는 언어가 있어서 필요함.
+numbers = list(map(int, input().split()))
+print(min(numbers) , max(numbers))
+
+# 10818 4년 전에 코딩한게 있네?? 내 사고방식 맞나? 헐..
+n=int(input())
+a=list(map(int,input().split()))
+
+max=min= a[0]
+for i in range(1,n):
+    if a[i] > max:
+        max=a[i]
+for i in range(1,n):
+    if a[i]< min:
+        min=a[i]
+print(min,max)
+
+
+# 1152
+print(len(list(input().split())))
+# cnt_blank = 1
+# for i in text:
+#     if i==' ':
+#         cnt_blank+=1
+# print(cnt_blank)
+
+# 4101 첫 시도 이 문제가 직각삼각형문제보다 먼저 풀었어야 한 거였네
+while True:
+    a,b = map(int, input().split())
+    if (a,b)==(0,0):
+        break
+    if a>b:
+        print("Yes")
+    else:   
+        print('No')
+
+# 4101 첨삭 개선된 버전
+while True:
+    a,b = map(int, input().split())
+    if a==0 and b==0:
+        break
+    print("Yes" if a>b else "No")
 # 4153
 
 # while True:
