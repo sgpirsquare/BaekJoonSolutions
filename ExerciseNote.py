@@ -1,4 +1,41 @@
 """
+# 24900 풀었음 예능 문제인거 같은데?
+
+# 2440
+n = int(input())
+for i in range(n):
+    print("*" * (n - i))
+
+
+
+# # 2577 보류
+
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# digit = [x for x in range(10)]
+# digit_num =[]
+# print(digit)
+# d = a * b * c
+# for i in range(10):
+#     for j in digit:
+#         if d
+
+
+# 11720 첫
+length = int(input())
+number = str(input())
+sum = 0
+for i in range(length):
+    sum += int(number[i])
+print(sum)
+
+# 11720 첨삭받은 버전
+length = int(input())
+number = input()
+print(sum(int(number[i]) for i in range(length)))
+# a = str(54321)
+# print(int(a[0])+int(a[1]))
 # 10818 4년 전에 코딩 개선
 n=int(input())
 numbers=list(map(int,input().split()))
