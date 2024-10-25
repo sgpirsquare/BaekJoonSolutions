@@ -1,4 +1,89 @@
 """
+# 10811 바구니 뒤집기 지피티 도음을 받았음
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    start, end = map(int, input().split())
+    # 슬라이싱 개념 일부만 떼어내어 다시 리스트를 만드는 것임
+    # 따라서 중첩연산?이 가능하다 [][][]도 가능
+    # 역순배열 [::-1]
+    # [start:end:step]
+    boxes[start - 1 : end] = boxes[start - 1 : end][::-1]
+print(*boxes)
+
+# 10811 반복문 사용버전 범용성이 좋음 다른 언어에도 적용가능
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    start, end = map(int, input().split())
+    left, right = start - 1, end - 1
+    while left < right:
+        boxes[left], boxes[right] = boxes[right], boxes[left]
+        left += 1
+        right -= 1
+print(*boxes)
+
+# 10813 내 시도
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    first, second = map(int, input().split())
+    temp = boxes[second - 1]
+    boxes[second - 1] = boxes[first - 1]
+    boxes[first - 1] = temp
+print(*boxes)
+
+# 10813 지피티 첨삭 수정
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    index1, index2 = map(int, input().split())
+    boxes[index1 - 1], boxex[index2 - 1]=boxes[index2 - 1], boxex[index1 - 1]
+print(*boxes)
+# 10810 내 생각
+box_num, ball_try = map(int, input().split())
+
+boxes = [0 for _ in range(box_num)]
+for _ in range(ball_try):
+    box_start, box_end, ball_number = map(int, input().split())
+    for i in range(box_start - 1, box_end):
+        boxes[i] = ball_number
+
+print(*boxes)
+
+# boxes = [0 for _ in range(5)]
+# print(boxes)
+
+# 10810 지피티 첨삭
+box_number, ball_try = map(int, input().split())
+boxes = [0] * box_number
+for _ in range(ball_try):
+    start, end, ball = map(int, input().split())
+    boxes[start - 1 : end] = [ball] * (end - start + 1)
+print(*boxes)
+# 25304
+money = int(input())
+shopping = int(input())
+# sum = 0 sum은 예약어이다.
+total_spent = 0
+for i in range(shopping):
+    # mon, shop = map(int, input().split())
+    price, quantity = map(int, input().split())
+    total_spent += price * quantity
+if money == total_spent:
+    print("Yes")
+else:
+    print("No")
+
+# 25304 다른 사람꺼 보고 개선 complehension
+money = int(input())
+shopping = int(input())
+sum = 0
+for i in range(shopping):
+    mon, shop = map(int, input().split())
+    sum += mon * shop
+print("Yes" if money == sum else "No")
+
 # 24900 풀었음 예능 문제인거 같은데?
 
 # 2440
