@@ -1,4 +1,15 @@
 """
+# 2908 상수
+number1, number2 = input().split()
+reverse_n1, reverse_n2 = number1[::-1], number2[::-1]
+print(reverse_n1 if reverse_n1 > reverse_n2 else reverse_n2)
+
+# 2908 첨삭받은 후 리코딩
+number1, number2 = input().split()
+rev1, rev2 = int(number1[::-1]), int(number2[::-1])
+print(rev1 if rev1 > rev2 else rev2)
+# print(max(rev1,rev2))도 괜찮음 내장함수 활용
+
 # 10811 바구니 뒤집기 지피티 도음을 받았음
 box_num, ball_try = map(int, input().split())
 boxes = [i + 1 for i in range(box_num)]
