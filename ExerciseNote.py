@@ -1,4 +1,69 @@
+# 1157
+words = input().upper()
+alphabets = "ABCDEFGFIJKLMNOPQRSTUVWXYZ"
+list_letter = [0] * len(alphabets)
+for i in range(len(alphabets)):
+    for j in words:
+        if alphabets[i] == j:
+            list_letter[i] += 1
+print(list_letter)
+# for i in alphabets:
+#     if
+print(words)
+print(max(list_letter))
+
+
 """
+# 9506
+while True:
+    n = int(input())
+    if n == -1:
+        break
+    div = [i for i in range(1, n) if n % i == 0]
+    if sum(div) != n:
+        print(f"{n} is NOT perfect.")
+    # perfect라고 적었다고 틀리냐 perfect.라고 해야 맞고 허참
+    else:
+        rearr = []
+        rearr += [n] + ["="]
+        for i in range(len(div) - 1):
+            rearr += [div[i]] + ["+"]
+        rearr += [div[-1]]
+        print(*rearr)
+
+# 9506 개선시키기
+while True:
+    n = int(input())
+    if n == -1:
+        break
+    div = [i for i in range(1, n) if n % i == 0]
+    if sum(div) == n:
+        equation = f"{n} = " + " + ".join(map(str, div))
+        print(equation)
+    else:
+        print(f"{n} is NOT perfect.")
+    # perfect라고 적었다고 틀리냐 perfect.라고 해야 맞고 허참
+
+
+# 2501
+n, k = map(int, input().split())
+div = []
+for i in range(1, n + 1):
+    if n % i == 0:
+        div += [i]
+
+print(0 if len(div) < k else div[k - 1])
+
+# 2501 list comprehension
+n, k = map(int, input().split())
+div = [i for i in range(1, int(n**0.5) + 1) if n % i == 0]
+# 대칭 약수(paired divisor or symmetric divisor) 개념
+div += [n // i for i in div if i != n // i]
+div.sort()
+print(0 if len(div) < k else div[k - 1])
+
+
+
 # 10101
 ang_1 = int(input())
 ang_2 = int(input())
@@ -13,6 +78,24 @@ if ang_1 == ang_2 == ang_3 == 60:
     print("Equilateral")
 if sum_ang == 180 and len(set_Isosceles) == 2:
     print("Isosceles")
+
+# 10101 개선하기
+ang_1 = int(input())
+ang_2 = int(input())
+ang_3 = int(input())
+
+sum_ang = ang_1 + ang_2 + ang_3
+set_Isosceles = {ang_1, ang_2, ang_3}
+if sum_ang != 180:
+    print("Error")
+elif ang_1 == ang_2 == ang_3 == 60:
+    print("Equilateral")
+elif len(set_Isosceles) == 2:
+    print("Isosceles")
+else:
+    print("Scalene")
+
+
 # 15894
 print(4 * int(input()))
 # 10988 팰린드롬 회문문자
@@ -30,6 +113,7 @@ for i in range(len(text) // 2):
         is_palindrome = 0
         break
 print(is_palindrome)
+
 # 2444
 # n = int(input())
 # for i in range(n):
