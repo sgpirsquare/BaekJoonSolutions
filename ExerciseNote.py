@@ -1,3 +1,138 @@
+# 2738 행렬 덧셈
+n, m = map(int, input().split())
+mat_1 = []
+mat_2 = []
+for i in range(n):
+    mat_1.append(list(map(int, input().split())))
+for i in range(n):
+    mat_2.append(list(map(int, input().split())))
+for i in range(n):
+    add_mat = []
+    for j in range(m):
+        add_mat.append(mat_1[i][j] + mat_2[i][j])
+    print(*add_mat)
+"""
+# 3009
+a1, b1 = map(int, input().split())
+a2, b2 = map(int, input().split())
+a3, b3 = map(int, input().split())
+
+list_point = [[a1, b1], [a2, b2], [a3, b3]]
+
+list_p = [a1, a2, a3]
+list_q = [b1, b2, b3]
+listset_p = list(set(list_p))
+listset_q = list(set(list_q))
+
+list_all = [
+    [listset_p[0], listset_q[0]],
+    [listset_p[0], listset_q[1]],
+    [listset_p[1], listset_q[0]],
+    [listset_p[1], listset_q[1]],
+]
+result = [x for x in list_all if x not in list_point]
+
+print(*result[0])
+
+# 3009 개선시키기
+a1, b1 = map(int, input().split())
+a2, b2 = map(int, input().split())
+a3, b3 = map(int, input().split())
+
+list_p = [a1, a2, a3]
+list_q = [b1, b2, b3]
+
+x4 = [x for x in list_p if list_p.count(x) == 1][0]
+y4 = [y for y in list_q if list_q.count(y) == 1][0]
+
+print(x4, y4)
+
+# 2577
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# list_abc = list(str(a * b * c))
+# for i in range(10):
+#     suma = 0
+#     for j in range(len(list_abc)):
+#         if i == int(list_abc[j]):
+#             suma += 1
+#     print(suma)
+
+# 2577 개선시키기
+a = int(input())
+b = int(input())
+c = int(input())
+result = str(a * b * c)
+count = [0] * 10
+for char in result:
+    count[int(char)] += 1
+
+for cnt in count:
+    print(cnt)
+
+# 2577 개선시키기
+from collections import Counter
+
+a = int(input())
+b = int(input())
+c = int(input())
+
+# 문자열로 변환된 곱셈 결과의 등장 횟수를 카운트
+result = str(a * b * c)
+counter = Counter(result)
+
+# 0부터 9까지 등장 횟수 출력
+for i in range(10):
+    print(counter.get(str(i), 0))
+
+
+# 2577 4년 전 코드 2020년 8월 내가 무슨 일들을 해왔던거야?
+a = int(input())
+b = int(input())
+c = int(input())
+n = list(map(int, str(a * b * c)))
+for i in range(10):
+    print(n.count(i))
+
+# a = "1213450"
+# list_a = list(a)
+# print(list_a)
+# print(0 == int(list_a[6]))
+# print(list_a[6])
+
+# 1085
+x, y, w, h = map(int, input().split())
+print(min(abs(x - w), abs(x - 0), abs(h - y), abs(y - 0)))
+
+# 1085 개선판
+px, py, width, height = map(int, input().split())
+print(min(width - px, px, height - py, py))
+# 2745 pythonic
+# N, B = input().split()
+# print(int(N, int(B)))
+# 2745 일반적인 방식 진법변환공식 사용
+def base_to_decimal(num_str, base):
+    digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    result = 0
+
+    # for i, char in enumerate(reversed(num_str)):
+    # enumerate, reversed 사용하지 않고
+    length = len(num_str)
+    for i in range(length):
+        char = num_str[length - 1 - i]
+        value = digits.index(char)
+        result += value * (base**i)
+    return result
+
+
+N, B = input().split()
+print(base_to_decimal(N, int(B)))
+
+# 27323
+width = int(input())
+length = int(input())
+print(width * length)
 # 10809
 word_text = list(input())
 alphabets_number = [-1 for _ in range(97, 123)]
@@ -10,7 +145,6 @@ for i in range(97, 123):
 print(*alphabets_number)
 
 
-"""
 # 2908 상수
 number1, number2 = input().split()
 reverse_n1, reverse_n2 = number1[::-1], number2[::-1]
@@ -257,20 +391,6 @@ for _ in range(n):
     result = "".join(char * repeat_count for char in text)
 
     print(result)
-
-# 2738 행렬 덧셈
-n, m = map(int, input().split())
-mat_1 = []
-mat_2 = []
-for i in range(n):
-    mat_1.append(list(map(int, input().split())))
-for i in range(n):
-    mat_2.append(list(map(int, input().split())))
-for i in range(n):
-    add_mat = []
-    for j in range(m):
-        add_mat.append(mat_1[i][j] + mat_2[i][j])
-    print(*add_mat)
 
 # 2738 개선된 버전 list complehension
 n, m = map(int, input().split())
