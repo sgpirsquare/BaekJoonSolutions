@@ -1,3 +1,23 @@
+# 24265 개선시키기
+n = int(input())
+print(n * (n - 1) // 2)
+print(2)
+
+"""
+# 24266
+n = int(input())
+print(n**3)
+print(3)
+# 24265
+n = int(input())
+sum = 0
+#sum은 예약어 함수명이라 total로 바꾸길 권장함
+for i in range(n):
+    sum += i
+print(sum)
+print(2)
+
+
 # 1157
 words = input().upper()
 alphabets = "ABCDEFGFIJKLMNOPQRSTUVWXYZ"
@@ -12,8 +32,21 @@ print(list_letter)
 print(words)
 print(max(list_letter))
 
+# 24264
+n = int(input())
+print(n**2)
+print(2)
 
-"""
+#24263
+n=int(input())
+print(n)
+print(1)
+
+#24262
+n=int(input())
+print(1)
+print(0)
+
 # 9506
 while True:
     n = int(input())
