@@ -1,3 +1,15 @@
+# 10809
+word_text = list(input())
+alphabets_number = [-1 for _ in range(97, 123)]
+for i in range(97, 123):
+    for j in range(len(word_text)):
+        if word_text[j - 1] != word_text[j]:
+            pass
+            if chr(i) == word_text[j]:
+                alphabets_number[i - 97] = j
+print(*alphabets_number)
+
+
 """
 # 2908 상수
 number1, number2 = input().split()
