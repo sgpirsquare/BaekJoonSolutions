@@ -1,3 +1,6 @@
+# 2566
+
+"""
 # 2738 행렬 덧셈
 n, m = map(int, input().split())
 mat_1 = []
@@ -10,8 +13,7 @@ for i in range(n):
     add_mat = []
     for j in range(m):
         add_mat.append(mat_1[i][j] + mat_2[i][j])
-    print(*add_mat)
-"""
+    print(*add_mat.)
 # 3009
 a1, b1 = map(int, input().split())
 a2, b2 = map(int, input().split())
