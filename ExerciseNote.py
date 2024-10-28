@@ -1,6 +1,103 @@
-# 2566
-
 """
+# 10101
+ang_1 = int(input())
+ang_2 = int(input())
+ang_3 = int(input())
+sum_ang = ang_1 + ang_2 + ang_3
+set_Isosceles = {ang_1, ang_2, ang_3}
+if sum_ang != 180:
+    print("Error")
+if sum_ang == 180 and len(set_Isosceles) == 3:
+    print("Scalene")
+if ang_1 == ang_2 == ang_3 == 60:
+    print("Equilateral")
+if sum_ang == 180 and len(set_Isosceles) == 2:
+    print("Isosceles")
+# 15894
+print(4 * int(input()))
+# 10988 팰린드롬 회문문자
+text = input()
+# print(1 if text == text[::-1] else 0)
+# reversed_text = "".join(reversed(text))
+# print(1 if text == reversed_text else 0)
+print(1 if text == "".join(reversed(text)) else 0)
+
+# 10988 반복문으로 개선하기 긴 문자열에선 오히려 효율적
+text = input()
+is_palindrome = 1
+for i in range(len(text) // 2):
+    if text[i] != text[-(i + 1)]:
+        is_palindrome = 0
+        break
+print(is_palindrome)
+# 2444
+# n = int(input())
+# for i in range(n):
+#     print(" " * (n - i - 1) + "*" * (2 * i + 1))
+# for i in range(n - 1):
+#     print(" " * (i + 1) + "*" * (2 * (n - i - 1) - 1))
+
+# 2444 개선시키기
+n = int(input())
+for i in range(n):
+    spaces = " " * (n - i - 1)
+    stars = "*" * (2 * i + 1)
+    print(spaces + stars)
+for i in range(n - 2, -1, -1):
+    spaces = " " * (n - i - 1)
+    stars = "*" * (2 * i + 1)
+    print(spaces + stars)
+
+# 2444 다른 사람 코드 참고용
+n = int(input())
+for i in range(1, n):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+for i in range(n, 0, -1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+
+
+# 3003
+pieces = [1, 1, 2, 2, 2, 8]
+piece_exist = list(map(int, input().split()))
+result = [0] * 6
+for i in range(6):
+    result[i] = pieces[i] - piece_exist[i]
+print(*result)
+
+# 3003 개선시키기
+pieces = [1, 1, 2, 2, 2, 8]
+existing = list(map(int, input().split()))
+result = [pieces[i] - existing[i] for i in range(6)]
+# zip() 사용하기
+# result = [ p - e for p,e in zip(pieces, existing)]
+print(*result)
+# 2566
+mat = []
+maxes = []
+for i in range(9):
+    mat.append(list(map(int, input().split())))
+for i in range(9):
+    maxes.append(max(x for x in mat[i]))
+print(max(maxes))
+mat_row = maxes.index(max(maxes)) + 1
+mat_column = mat[mat_row - 1].index(max(maxes)) + 1
+print(mat_row, mat_column)
+
+# 2566 개선시키기
+mat = []
+max_value = -1
+max_row, max_col = 0, 0
+
+for i in range(9):
+    row = list(map(int, input().split()))
+    mat.append(row)
+    for j in range(9):
+        if row[j] > max_value:
+            max_value = row[j]
+            max_row, max_col = i + 1, j + 1
+print(max_value)
+print(max_row, max_col)
+
 # 2738 행렬 덧셈
 n, m = map(int, input().split())
 mat_1 = []
