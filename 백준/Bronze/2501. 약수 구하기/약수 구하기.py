@@ -4,7 +4,4 @@ for i in range(1, n + 1):
     if n % i == 0:
         div += [i]
 
-if len(div) < k:
-    print(0)
-else:
-    print(div[k - 1])
+print(0 if len(div) < k else div[k-1])
