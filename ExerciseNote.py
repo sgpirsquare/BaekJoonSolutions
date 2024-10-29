@@ -1,10 +1,40 @@
-# 15727
-# l = int(input())
-# print(l // 5 if l % 5 == 0 else l // 5 + 1)
+# 5073 개선시키기
+while True:
+    a, b, c = map(int, input().split())
+    if (a, b, c) == (0, 0, 0):
+        break
+    if a + b <= c or b + c <= a and c + a <= b:
+        print("Invalid")
+    elif a == b == c:
+        print("Equilateral")
+    elif len({a, b, c}) == 2:
+        print("Isosceles")
+    else:
+        print("Scalene")
+
+"""
+# 5073 
+while True:
+    a, b, c = map(int, input().split())
+    if (a, b, c) == (0, 0, 0):
+        break
+    isTriangle = a + b > c and b + c > a and c + a > b
+    set_Isosceles = {a, b, c}
+    if isTriangle is False:
+        print("Invalid")
+    elif a == b == c and a * b * c != 0:
+        print("Equilateral")
+    elif len(set_Isosceles) == 2:
+        print("Isosceles")
+    else:
+        print("Scalene")
+
+
 # 15727 개선시키기
 l = int(input())
 # 헉...뭔데 이 코드...와우..
 print((l + 4) // 5)
+
 # 올림을 정수 나눗셈으로 구현하는 방법
 # 정수 나눗셈 기반 올림 처리 (Celling Division using Integer Arithmetic)
 # Simulating Celling Division
@@ -12,7 +42,24 @@ print((l + 4) // 5)
 # Rounded-up Integer Division
 # 올림을 위한 보정값 추가
 # 15727번 문제의 본질은 주어진 수 l을 5로 나눈 값에 대한 올림이다.
-"""
+
+# 15727
+l = int(input())
+print(l // 5 if l % 5 == 0 else l // 5 + 1)
+
+# 2798 개선버전
+n, m = map(int, input().split())
+cards = list(map(int, input().split()))
+max_sum = 0  # m 이하의 최대 합
+# 리스트 안 만들어도 되는데 메모리 낭비했었군..
+# 리스트부터 만드는 습관이 들었다?
+for i in range(n - 2):
+    for j in range(i + 1, n - 1):
+        for k in range(j + 1, n):
+            total = cards[i] + cards[j] + cards[k]
+            if total <= m:  # m 이하일 때만 최대값 갱신
+                max_sum = max(max_sum, total)
+print(max_sum)
 # 2798 # 24267이랑 연결됨
 n, m = map(int, input().split())
 cards = list(map(int, input().split()))
@@ -29,20 +76,6 @@ print(max(less_than_m))
 # if m >= max(totals):
 # sorted_totals = sorted(totals)
 
-# 2798 개선버전
-n, m = map(int, input().split())
-cards = list(map(int, input().split()))
-max_sum = 0  # m 이하의 최대 합
-# 리스트 안 만들어도 되는데 메모리 낭비했었군..
-# 리스트부터 만드는 습관이 들었다?
-for i in range(n - 2):
-    for j in range(i + 1, n - 1):
-        for k in range(j + 1, n):
-            total = cards[i] + cards[j] + cards[k]
-            if total <= m:  # m 이하일 때만 최대값 갱신
-                max_sum = max(max_sum, total)
-
-print(max_sum)
 
 
 # 24267 시간 복잡도 계산하기
@@ -77,6 +110,11 @@ n = int(input())
 print(n**3)
 print(3)
 
+# 24265 개선시키기
+n = int(input())
+print(n * (n - 1) // 2)
+print(2)
+
 # 24265
 n = int(input())
 sum = 0
@@ -86,10 +124,6 @@ for i in range(n):
 print(sum)
 print(2)
 
-# 24265 개선시키기
-n = int(input())
-print(n * (n - 1) // 2)
-print(2)
 
 # 1157
 words = input().upper()
@@ -120,6 +154,19 @@ n=int(input())
 print(1)
 print(0)
 
+# 9506 개선시키기
+while True:
+    n = int(input())
+    if n == -1:
+        break
+    div = [i for i in range(1, n) if n % i == 0]
+    if sum(div) == n:
+        equation = f"{n} = " + " + ".join(map(str, div))
+        print(equation)
+    else:
+        print(f"{n} is NOT perfect.")
+    # perfect라고 적었다고 틀리냐 perfect.라고 해야 맞고 허참
+
 # 9506
 while True:
     n = int(input())
@@ -137,19 +184,14 @@ while True:
         rearr += [div[-1]]
         print(*rearr)
 
-# 9506 개선시키기
-while True:
-    n = int(input())
-    if n == -1:
-        break
-    div = [i for i in range(1, n) if n % i == 0]
-    if sum(div) == n:
-        equation = f"{n} = " + " + ".join(map(str, div))
-        print(equation)
-    else:
-        print(f"{n} is NOT perfect.")
-    # perfect라고 적었다고 틀리냐 perfect.라고 해야 맞고 허참
 
+# 2501 list comprehension
+n, k = map(int, input().split())
+div = [i for i in range(1, int(n**0.5) + 1) if n % i == 0]
+# 대칭 약수(paired divisor or symmetric divisor) 개념
+div += [n // i for i in div if i != n // i]
+div.sort()
+print(0 if len(div) < k else div[k - 1])
 
 # 2501
 n, k = map(int, input().split())
@@ -160,30 +202,6 @@ for i in range(1, n + 1):
 
 print(0 if len(div) < k else div[k - 1])
 
-# 2501 list comprehension
-n, k = map(int, input().split())
-div = [i for i in range(1, int(n**0.5) + 1) if n % i == 0]
-# 대칭 약수(paired divisor or symmetric divisor) 개념
-div += [n // i for i in div if i != n // i]
-div.sort()
-print(0 if len(div) < k else div[k - 1])
-
-
-
-# 10101
-ang_1 = int(input())
-ang_2 = int(input())
-ang_3 = int(input())
-sum_ang = ang_1 + ang_2 + ang_3
-set_Isosceles = {ang_1, ang_2, ang_3}
-if sum_ang != 180:
-    print("Error")
-if sum_ang == 180 and len(set_Isosceles) == 3:
-    print("Scalene")
-if ang_1 == ang_2 == ang_3 == 60:
-    print("Equilateral")
-if sum_ang == 180 and len(set_Isosceles) == 2:
-    print("Isosceles")
 
 # 10101 개선하기
 ang_1 = int(input())
@@ -201,15 +219,25 @@ elif len(set_Isosceles) == 2:
 else:
     print("Scalene")
 
+# 10101
+ang_1 = int(input())
+ang_2 = int(input())
+ang_3 = int(input())
+sum_ang = ang_1 + ang_2 + ang_3
+set_Isosceles = {ang_1, ang_2, ang_3}
+if sum_ang != 180:
+    print("Error")
+if sum_ang == 180 and len(set_Isosceles) == 3:
+    print("Scalene")
+if ang_1 == ang_2 == ang_3 == 60:
+    print("Equilateral")
+if sum_ang == 180 and len(set_Isosceles) == 2:
+    print("Isosceles")
+
+
 
 # 15894
 print(4 * int(input()))
-# 10988 팰린드롬 회문문자
-text = input()
-# print(1 if text == text[::-1] else 0)
-# reversed_text = "".join(reversed(text))
-# print(1 if text == reversed_text else 0)
-print(1 if text == "".join(reversed(text)) else 0)
 
 # 10988 반복문으로 개선하기 긴 문자열에선 오히려 효율적
 text = input()
@@ -220,12 +248,20 @@ for i in range(len(text) // 2):
         break
 print(is_palindrome)
 
-# 2444
-# n = int(input())
-# for i in range(n):
-#     print(" " * (n - i - 1) + "*" * (2 * i + 1))
-# for i in range(n - 1):
-#     print(" " * (i + 1) + "*" * (2 * (n - i - 1) - 1))
+# 10988 팰린드롬 회문문자
+text = input()
+# print(1 if text == text[::-1] else 0)
+# reversed_text = "".join(reversed(text))
+# print(1 if text == reversed_text else 0)
+print(1 if text == "".join(reversed(text)) else 0)
+
+
+# 2444 다른 사람 코드 참고용
+n = int(input())
+for i in range(1, n):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+for i in range(n, 0, -1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
 
 # 2444 개선시키기
 n = int(input())
@@ -238,13 +274,20 @@ for i in range(n - 2, -1, -1):
     stars = "*" * (2 * i + 1)
     print(spaces + stars)
 
-# 2444 다른 사람 코드 참고용
+# 2444
 n = int(input())
-for i in range(1, n):
-    print(" " * (n - i) + "*" * (2 * i - 1))
-for i in range(n, 0, -1):
-    print(" " * (n - i) + "*" * (2 * i - 1))
+for i in range(n):
+    print(" " * (n - i - 1) + "*" * (2 * i + 1))
+for i in range(n - 1):
+    print(" " * (i + 1) + "*" * (2 * (n - i - 1) - 1))
 
+# 3003 개선시키기
+pieces = [1, 1, 2, 2, 2, 8]
+existing = list(map(int, input().split()))
+result = [pieces[i] - existing[i] for i in range(6)]
+# zip() 사용하기
+# result = [ p - e for p,e in zip(pieces, existing)]
+print(*result)
 
 # 3003
 pieces = [1, 1, 2, 2, 2, 8]
@@ -254,24 +297,6 @@ for i in range(6):
     result[i] = pieces[i] - piece_exist[i]
 print(*result)
 
-# 3003 개선시키기
-pieces = [1, 1, 2, 2, 2, 8]
-existing = list(map(int, input().split()))
-result = [pieces[i] - existing[i] for i in range(6)]
-# zip() 사용하기
-# result = [ p - e for p,e in zip(pieces, existing)]
-print(*result)
-# 2566
-mat = []
-maxes = []
-for i in range(9):
-    mat.append(list(map(int, input().split())))
-for i in range(9):
-    maxes.append(max(x for x in mat[i]))
-print(max(maxes))
-mat_row = maxes.index(max(maxes)) + 1
-mat_column = mat[mat_row - 1].index(max(maxes)) + 1
-print(mat_row, mat_column)
 
 # 2566 개선시키기
 mat = []
@@ -288,6 +313,18 @@ for i in range(9):
 print(max_value)
 print(max_row, max_col)
 
+# 2566
+mat = []
+maxes = []
+for i in range(9):
+    mat.append(list(map(int, input().split())))
+for i in range(9):
+    maxes.append(max(x for x in mat[i]))
+print(max(maxes))
+mat_row = maxes.index(max(maxes)) + 1
+mat_column = mat[mat_row - 1].index(max(maxes)) + 1
+print(mat_row, mat_column)
+
 # 2738 행렬 덧셈
 n, m = map(int, input().split())
 mat_1 = []
@@ -301,6 +338,21 @@ for i in range(n):
     for j in range(m):
         add_mat.append(mat_1[i][j] + mat_2[i][j])
     print(*add_mat.)
+
+
+# 3009 개선시키기
+a1, b1 = map(int, input().split())
+a2, b2 = map(int, input().split())
+a3, b3 = map(int, input().split())
+
+list_p = [a1, a2, a3]
+list_q = [b1, b2, b3]
+
+x4 = [x for x in list_p if list_p.count(x) == 1][0]
+y4 = [y for y in list_q if list_q.count(y) == 1][0]
+
+print(x4, y4)
+
 # 3009
 a1, b1 = map(int, input().split())
 a2, b2 = map(int, input().split())
@@ -323,42 +375,18 @@ result = [x for x in list_all if x not in list_point]
 
 print(*result[0])
 
-# 3009 개선시키기
-a1, b1 = map(int, input().split())
-a2, b2 = map(int, input().split())
-a3, b3 = map(int, input().split())
-
-list_p = [a1, a2, a3]
-list_q = [b1, b2, b3]
-
-x4 = [x for x in list_p if list_p.count(x) == 1][0]
-y4 = [y for y in list_q if list_q.count(y) == 1][0]
-
-print(x4, y4)
-
 # 2577
-# a = int(input())
-# b = int(input())
-# c = int(input())
-# list_abc = list(str(a * b * c))
-# for i in range(10):
-#     suma = 0
-#     for j in range(len(list_abc)):
-#         if i == int(list_abc[j]):
-#             suma += 1
-#     print(suma)
-
-# 2577 개선시키기
 a = int(input())
 b = int(input())
 c = int(input())
-result = str(a * b * c)
-count = [0] * 10
-for char in result:
-    count[int(char)] += 1
+list_abc = list(str(a * b * c))
+for i in range(10):
+    suma = 0
+    for j in range(len(list_abc)):
+        if i == int(list_abc[j]):
+            suma += 1
+    print(suma)
 
-for cnt in count:
-    print(cnt)
 
 # 2577 개선시키기
 from collections import Counter
@@ -375,6 +403,17 @@ counter = Counter(result)
 for i in range(10):
     print(counter.get(str(i), 0))
 
+# 2577 개선시키기
+a = int(input())
+b = int(input())
+c = int(input())
+result = str(a * b * c)
+count = [0] * 10
+for char in result:
+    count[int(char)] += 1
+
+for cnt in count:
+    print(cnt)
 
 # 2577 4년 전 코드 2020년 8월 내가 무슨 일들을 해왔던거야?
 a = int(input())
@@ -390,16 +429,19 @@ for i in range(10):
 # print(0 == int(list_a[6]))
 # print(list_a[6])
 
+# 1085 개선판
+px, py, width, height = map(int, input().split())
+print(min(width - px, px, height - py, py))
+
 # 1085
 x, y, w, h = map(int, input().split())
 print(min(abs(x - w), abs(x - 0), abs(h - y), abs(y - 0)))
 
-# 1085 개선판
-px, py, width, height = map(int, input().split())
-print(min(width - px, px, height - py, py))
+
 # 2745 pythonic
 # N, B = input().split()
 # print(int(N, int(B)))
+
 # 2745 일반적인 방식 진법변환공식 사용
 def base_to_decimal(num_str, base):
     digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -414,7 +456,6 @@ def base_to_decimal(num_str, base):
         result += value * (base**i)
     return result
 
-
 N, B = input().split()
 print(base_to_decimal(N, int(B)))
 
@@ -422,6 +463,7 @@ print(base_to_decimal(N, int(B)))
 width = int(input())
 length = int(input())
 print(width * length)
+
 # 10809
 word_text = list(input())
 alphabets_number = [-1 for _ in range(97, 123)]
@@ -433,29 +475,17 @@ for i in range(97, 123):
                 alphabets_number[i - 97] = j
 print(*alphabets_number)
 
-
-# 2908 상수
-number1, number2 = input().split()
-reverse_n1, reverse_n2 = number1[::-1], number2[::-1]
-print(reverse_n1 if reverse_n1 > reverse_n2 else reverse_n2)
-
 # 2908 첨삭받은 후 리코딩
 number1, number2 = input().split()
 rev1, rev2 = int(number1[::-1]), int(number2[::-1])
 print(rev1 if rev1 > rev2 else rev2)
 # print(max(rev1,rev2))도 괜찮음 내장함수 활용
 
-# 10811 바구니 뒤집기 지피티 도음을 받았음
-box_num, ball_try = map(int, input().split())
-boxes = [i + 1 for i in range(box_num)]
-for _ in range(ball_try):
-    start, end = map(int, input().split())
-    # 슬라이싱 개념 일부만 떼어내어 다시 리스트를 만드는 것임
-    # 따라서 중첩연산?이 가능하다 [][][]도 가능
-    # 역순배열 [::-1]
-    # [start:end:step]
-    boxes[start - 1 : end] = boxes[start - 1 : end][::-1]
-print(*boxes)
+# 2908 상수
+number1, number2 = input().split()
+reverse_n1, reverse_n2 = number1[::-1], number2[::-1]
+print(reverse_n1 if reverse_n1 > reverse_n2 else reverse_n2)
+
 
 # 10811 반복문 사용버전 범용성이 좋음 다른 언어에도 적용가능
 box_num, ball_try = map(int, input().split())
@@ -468,6 +498,26 @@ for _ in range(ball_try):
         left += 1
         right -= 1
 print(*boxes)
+# 10811 바구니 뒤집기 지피티 도음을 받았음
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    start, end = map(int, input().split())
+    # 슬라이싱 개념 일부만 떼어내어 다시 리스트를 만드는 것임
+    # 따라서 중첩연산?이 가능하다 [][][]도 가능
+    # 역순배열 [::-1]
+    # [start:end:step]
+    boxes[start - 1 : end] = boxes[start - 1 : end][::-1]
+print(*boxes)
+
+
+# 10813 지피티 첨삭 수정
+box_num, ball_try = map(int, input().split())
+boxes = [i + 1 for i in range(box_num)]
+for _ in range(ball_try):
+    index1, index2 = map(int, input().split())
+    boxes[index1 - 1], boxex[index2 - 1]=boxes[index2 - 1], boxex[index1 - 1]
+print(*boxes)
 
 # 10813 내 시도
 box_num, ball_try = map(int, input().split())
@@ -479,13 +529,15 @@ for _ in range(ball_try):
     boxes[first - 1] = temp
 print(*boxes)
 
-# 10813 지피티 첨삭 수정
-box_num, ball_try = map(int, input().split())
-boxes = [i + 1 for i in range(box_num)]
+
+# 10810 지피티 첨삭
+box_number, ball_try = map(int, input().split())
+boxes = [0] * box_number
 for _ in range(ball_try):
-    index1, index2 = map(int, input().split())
-    boxes[index1 - 1], boxex[index2 - 1]=boxes[index2 - 1], boxex[index1 - 1]
+    start, end, ball = map(int, input().split())
+    boxes[start - 1 : end] = [ball] * (end - start + 1)
 print(*boxes)
+
 # 10810 내 생각
 box_num, ball_try = map(int, input().split())
 
@@ -500,13 +552,14 @@ print(*boxes)
 # boxes = [0 for _ in range(5)]
 # print(boxes)
 
-# 10810 지피티 첨삭
-box_number, ball_try = map(int, input().split())
-boxes = [0] * box_number
-for _ in range(ball_try):
-    start, end, ball = map(int, input().split())
-    boxes[start - 1 : end] = [ball] * (end - start + 1)
-print(*boxes)
+# 25304 다른 사람꺼 보고 개선 complehension
+money = int(input())
+shopping = int(input())
+sum = 0
+for i in range(shopping):
+    mon, shop = map(int, input().split())
+    sum += mon * shop
+print("Yes" if money == sum else "No")
 # 25304
 money = int(input())
 shopping = int(input())
@@ -521,14 +574,6 @@ if money == total_spent:
 else:
     print("No")
 
-# 25304 다른 사람꺼 보고 개선 complehension
-money = int(input())
-shopping = int(input())
-sum = 0
-for i in range(shopping):
-    mon, shop = map(int, input().split())
-    sum += mon * shop
-print("Yes" if money == sum else "No")
 
 # 24900 풀었음 예능 문제인거 같은데?
 
@@ -552,6 +597,12 @@ for i in range(n):
 #     for j in digit:
 #         if d
 
+# 11720 첨삭받은 버전
+length = int(input())
+number = input()
+print(sum(int(number[i]) for i in range(length)))
+# a = str(54321)
+# print(int(a[0])+int(a[1]))
 
 # 11720 첫
 length = int(input())
@@ -561,12 +612,7 @@ for i in range(length):
     sum += int(number[i])
 print(sum)
 
-# 11720 첨삭받은 버전
-length = int(input())
-number = input()
-print(sum(int(number[i]) for i in range(length)))
-# a = str(54321)
-# print(int(a[0])+int(a[1]))
+
 # 10818 4년 전에 코딩 개선
 n=int(input())
 numbers=list(map(int,input().split()))
@@ -608,6 +654,12 @@ print(len(list(input().split())))
 #         cnt_blank+=1
 # print(cnt_blank)
 
+# 4101 첨삭 개선된 버전
+while True:
+    a,b = map(int, input().split())
+    if a==0 and b==0:
+        break
+    print("Yes" if a>b else "No")
 # 4101 첫 시도 이 문제가 직각삼각형문제보다 먼저 풀었어야 한 거였네
 while True:
     a,b = map(int, input().split())
@@ -618,36 +670,14 @@ while True:
     else:   
         print('No')
 
-# 4101 첨삭 개선된 버전
-while True:
-    a,b = map(int, input().split())
-    if a==0 and b==0:
-        break
-    print("Yes" if a>b else "No")
-# 4153
-
-# while True:
-#     a, b, c = map(int, input().split())
-#     if (a, b, c) == (0, 0, 0):
-#         break
-# # 아니 이 정렬 한 줄 빠졌다고...헉...
-# # 예시 입력만 믿었던 게 낭패로군
-# # 세 번의 길이만 준다고 했지 오름차순으로 준다고는 안 했으니 할 말은 없네
-#     sides = sorted([a, b, c])
-#     if sides[0] ** 2 + sides[1] ** 2 == sides[2] ** 2:
-#         print("right")
-#     else:
-#         print("wrong")
 
 # 4153 개선시키기
-
 
 def is_right_triangle(a, b, c):
     max_side = max(a, b, c)
     other_sides = [x for x in [a, b, c] if x != max_side]
 
     return other_sides[0] ** 2 + other_sides[1] ** 2 == max_side**2
-
 
 while True:
     a, b, c = map(int, input().split())
@@ -657,6 +687,31 @@ while True:
         print("right")
     else:
         print("wrong")
+
+# 4153
+
+while True:
+    a, b, c = map(int, input().split())
+    if (a, b, c) == (0, 0, 0):
+        break
+# 아니 이 정렬 한 줄 빠졌다고...헉...
+# 예시 입력만 믿었던 게 낭패로군
+# 세 번의 길이만 준다고 했지 오름차순으로 준다고는 안 했으니 할 말은 없네
+    sides = sorted([a, b, c])
+    if sides[0] ** 2 + sides[1] ** 2 == sides[2] ** 2:
+        print("right")
+    else:
+        print("wrong")
+
+
+# 2675 개선해보자
+n = int(input())
+for _ in range(n):
+    repeat_count, text = input().split()
+    repeat_count = int(repeat_count)
+    result = "".join(char * repeat_count for char in text)
+
+    print(result)
 
 
 # 2675 문자열 반복
@@ -671,15 +726,6 @@ for i in range(n):
 python documentation
 print(*objects, sep=' ', end='\n', file=None, flush=False)
 result = ''.join(map(str, numbers))
-
-# 2675 개선해보자
-n = int(input())
-for _ in range(n):
-    repeat_count, text = input().split()
-    repeat_count = int(repeat_count)
-    result = "".join(char * repeat_count for char in text)
-
-    print(result)
 
 # 2738 개선된 버전 list complehension
 n, m = map(int, input().split())
@@ -698,14 +744,15 @@ for row_1, row_2 in zip(mat_1, mat_2):
     add_rows = [a + b for a, b in zip(row_1, row_2)]
     print(*add_rows)
 
-# 10871 첫 시도
-arr = []
+
+
+# 10871 챗지피티 개선시키기
 n, a = map(int, input().split())
 numbers = list(map(int, input().split()))
-for i in numbers:
-    if a > i:
-        arr.append(i)
+arr = [i for i in numbers if i < a]
 print(*arr)
+# 같은 효과인 것
+print(' '.join(map(str, arr)))
 
 # 10871 4년 전에 푼 소스가 있네
 n, x = map(int, input().split())
@@ -717,23 +764,20 @@ for i in a:
 for i in b:
     print(i, end=" ")
 
-# 10871 챗지피티 개선시키기
+# 10871 첫 시도
+arr = []
 n, a = map(int, input().split())
 numbers = list(map(int, input().split()))
-arr = [i for i in numbers if i < a]
+for i in numbers:
+    if a > i:
+        arr.append(i)
 print(*arr)
-# 같은 효과인 것
-print(' '.join(map(str, arr)))
 
-# 10807 첫 시도
-n = int(input()) #이 단계는 파이썬에선 불필요 동적 라스트이기 때문
-m = map(int, input().split())
-l = int(input())
-cnt = 0
-for i in m:
-    if l == i:
-        cnt += 1
-print(cnt)
+# 10807 첨삭 2
+n = int(input())  
+numbers = list(map(int, input().split()))  
+target = int(input())  
+print(numbers.count(target))
 
 # 10807 첨삭 1
 n = int(input())  
@@ -745,31 +789,22 @@ for num in numbers:
         count += 1  # 같으면 count를 1 증가
 print(count)
 
-# 10807 첨삭 2
-n = int(input())  
-numbers = list(map(int, input().split()))  
-target = int(input())  
-print(numbers.count(target))
+# 10807 첫 시도
+n = int(input()) #이 단계는 파이썬에선 불필요 동적 라스트이기 때문
+m = map(int, input().split())
+l = int(input())
+cnt = 0
+for i in m:
+    if l == i:
+        cnt += 1
+print(cnt)
 
-# 5597 첫 시도? 와~시간 좀 걸리네 많이도 아이고;;
-set_1 = [x for x in range(1, 31)]
-set_2 = []
-for i in range(28):
-    set_2.append(int(input()))
-diff = sorted(list(set(set_1) - set(set_2)))
-print(diff[0])
-print(diff[1])
 
-# 5597 첨삭받은 것
-set_1 = set(range(1, 31))
-set_2 = set()
-print("28개의 숫자를 하나씩 입력하세요:")
-for _ in range(28):
-    num = int(input())  # 숫자를 한 줄씩 입력받음
-    set_2.add(num)  # 입력받은 숫자를 집합에 추가
-missing_numbers = sorted(set_1 - set_2)
-print(missing_numbers[0])
-print(missing_numbers[1])
+# 5597 숏코드를 가독성있는 코드로 바꾼 버전
+all_numbers = set(range(1, 31))
+input_numbers = set(map(int, open(0)))
+missing_numbers = all_numbers ^ input_numbers
+print(*missing_numbers)
 
 # 5597 첨삭받은 것 두 번째꺼
 set_1 = set(range(1, 31))
@@ -782,26 +817,39 @@ missing_numbers = set_1 - set_2
 print(min(missing_numbers))
 print(max(missing_numbers))
 
-# 5597 숏코드를 가독성있는 코드로 바꾼 버전
-all_numbers = set(range(1, 31))
-input_numbers = set(map(int, open(0)))
-missing_numbers = all_numbers ^ input_numbers
-print(*missing_numbers)
 
+# 5597 첨삭받은 것
+set_1 = set(range(1, 31))
+set_2 = set()
+print("28개의 숫자를 하나씩 입력하세요:")
+for _ in range(28):
+    num = int(input())  # 숫자를 한 줄씩 입력받음
+    set_2.add(num)  # 입력받은 숫자를 집합에 추가
+missing_numbers = sorted(set_1 - set_2)
+print(missing_numbers[0])
+print(missing_numbers[1])
 
+# 5597 첫 시도? 와~시간 좀 걸리네 많이도 아이고;;
+set_1 = [x for x in range(1, 31)]
+set_2 = []
+for i in range(28):
+    set_2.append(int(input()))
+diff = sorted(list(set(set_1) - set(set_2)))
+print(diff[0])
+print(diff[1])
 
-# 9086 첫 시도
-# n = int(input())
-# for i in range(n):
-#     s = list(input())
-# ㅇㅇ 굳이 이럴 필요가 없는거네 음! -1 문법을 알았었는데도 적용을 못...
-#     print(s[0] + s[len(s) - 1])
 
 # 9086 개선된 코드 입력받자마자 바로 출력하기
 # n = int(input())
 # for _ in range(n):
 #     s = input()
 #     print(s[0] + s[-1])
+
+# 9086 더 개선된 코드
+n = int(input())
+arr = [s[0] + s[-1] for s in [input() for _ in range(n)]]
+
+print("\n".join(arr))
 
 # 9086 개선된 코드 리스트에 저장 후 출력하기
 # T = int(input())
@@ -815,12 +863,12 @@ print(*missing_numbers)
 # for j in arr:
 #     print(j)
 
-
-# 9086 더 개선된 코드
-n = int(input())
-arr = [s[0] + s[-1] for s in [input() for _ in range(n)]]
-
-print("\n".join(arr))
+# 9086 첫 시도
+# n = int(input())
+# for i in range(n):
+#     s = list(input())
+# ㅇㅇ 굳이 이럴 필요가 없는거네 음! -1 문법을 알았었는데도 적용을 못...
+#     print(s[0] + s[len(s) - 1])
 
 
 
@@ -840,6 +888,17 @@ while True:
         print("neither")
 
 
+# 2480 챗지피티가 첨삭해준 것
+a, b, c = map(int, input().split())
+dice = {a, b, c}
+if len(dice) == 1:
+    print(10000 + 1000 * a)
+elif len(dice) == 2:
+    # 조건부 표현식 (Conditional Expression) == 삼항 연산자(ternary operator)
+    common_value = a if a == b or a == c else b
+    print(1000 + common_value * 100)
+else:
+    print(max(dice) * 100)
 # 2480 처음 생각한 것
 a, b, c = map(int, input().split())
 
@@ -857,17 +916,6 @@ elif len(dice) == 2:
 elif len(dice) == 3:
     print(list(dice)[2] * 100)
 
-# 챗지피티가 첨삭해준 것
-a, b, c = map(int, input().split())
-dice = {a, b, c}
-if len(dice) == 1:
-    print(10000 + 1000 * a)
-elif len(dice) == 2:
-    # 조건부 표현식 (Conditional Expression) == 삼항 연산자(ternary operator)
-    common_value = a if a == b or a == c else b
-    print(1000 + common_value * 100)
-else:
-    print(max(dice) * 100)
 
 
 # 2525 오븐 시계
