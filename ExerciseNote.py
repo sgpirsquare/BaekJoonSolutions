@@ -1,3 +1,17 @@
+# 15727
+# l = int(input())
+# print(l // 5 if l % 5 == 0 else l // 5 + 1)
+# 15727 개선시키기
+l = int(input())
+# 헉...뭔데 이 코드...와우..
+print((l + 4) // 5)
+# 올림을 정수 나눗셈으로 구현하는 방법
+# 정수 나눗셈 기반 올림 처리 (Celling Division using Integer Arithmetic)
+# Simulating Celling Division
+# Integer-based Ceilling Trick
+# Rounded-up Integer Division
+# 올림을 위한 보정값 추가
+# 15727번 문제의 본질은 주어진 수 l을 5로 나눈 값에 대한 올림이다.
 """
 # 2798 # 24267이랑 연결됨
 n, m = map(int, input().split())
@@ -20,6 +34,7 @@ n, m = map(int, input().split())
 cards = list(map(int, input().split()))
 max_sum = 0  # m 이하의 최대 합
 # 리스트 안 만들어도 되는데 메모리 낭비했었군..
+# 리스트부터 만드는 습관이 들었다?
 for i in range(n - 2):
     for j in range(i + 1, n - 1):
         for k in range(j + 1, n):
