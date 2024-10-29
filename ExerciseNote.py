@@ -1,13 +1,67 @@
-# 24265 개선시키기
-n = int(input())
-print(n * (n - 1) // 2)
-print(2)
-
 """
+# 2798 # 24267이랑 연결됨
+n, m = map(int, input().split())
+cards = list(map(int, input().split()))
+totals = []
+for i in range(n - 2):
+    for j in range(i + 1, n - 1):
+        for k in range(j + 1, n):
+            totals.append(cards[i] + cards[j] + cards[k])
+less_than_m = []
+for total in totals:
+    if m >= int(total):
+        less_than_m += [total]
+print(max(less_than_m))
+# if m >= max(totals):
+# sorted_totals = sorted(totals)
+
+# 2798 개선버전
+n, m = map(int, input().split())
+cards = list(map(int, input().split()))
+max_sum = 0  # m 이하의 최대 합
+# 리스트 안 만들어도 되는데 메모리 낭비했었군..
+for i in range(n - 2):
+    for j in range(i + 1, n - 1):
+        for k in range(j + 1, n):
+            total = cards[i] + cards[j] + cards[k]
+            if total <= m:  # m 이하일 때만 최대값 갱신
+                max_sum = max(max_sum, total)
+
+print(max_sum)
+
+
+# 24267 시간 복잡도 계산하기
+n = int(input())
+print(n * (n - 1) * (n - 2) // 6)
+print(3)
+
+# MenOfPassion(A[], n) {
+#     sum <- 0;
+#     for i <- 1 to n - 2
+#         for j <- i + 1 to n - 1
+#             for k <- j + 1 to n
+#                 sum <- sum + A[i] × A[j] × A[k]; # 코드1
+#     return sum;
+# }
+# n*(n-1)*(n-2)//6
+# i: n - 2 - 1 + 1 = n - 2
+# j: n - 1 - i - 1 + 1 = n - i - 1
+# k: n - j - 1 + 1 = n - j
+# 저게 아니고
+# i는 n-2까지의 값을 가진다 왜냐
+# j는 i보다 1만큼 큰 값부터 선택한다
+# j가 i+1부터 시작한다고 했으니 그렇게 해석가능하다.
+# 또한 k도 j보다 1만큼 큰 값부터 선택한다.
+# 왜냐하면 k<-j+1이라고 되어 있기 때문
+# 결국 위 3중첩 반복문은 1<=i<j<k<=n의 구조를 가진다.
+# n은 자연수이므로 1부터 n까지의 자연수 중 세 개를 순서없이 중복없이 선택하는 경우의 수 즉 n Combination 3 이 되는 구조이다.
+# 따라서 n*(n-1)*(n-2)//6
+
 # 24266
 n = int(input())
 print(n**3)
 print(3)
+
 # 24265
 n = int(input())
 sum = 0
@@ -17,6 +71,10 @@ for i in range(n):
 print(sum)
 print(2)
 
+# 24265 개선시키기
+n = int(input())
+print(n * (n - 1) // 2)
+print(2)
 
 # 1157
 words = input().upper()
