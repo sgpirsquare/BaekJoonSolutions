@@ -1,9 +1,29 @@
+"""
+# 2338
+a = int(input())
+b = int(input())
+print(a + b)
+print(a - b)
+print(a * b)
+# 5341 개선하기
+def sum_of_integers(n):
+    return n * (n + 1) // 2
+
+
+while (n := int(input())) != 0:
+    print(sum_of_integers(n))
+# 5341
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    print(n * (n + 1) // 2)
 # 5073 개선시키기
 while True:
     a, b, c = map(int, input().split())
     if (a, b, c) == (0, 0, 0):
         break
-    if a + b <= c or b + c <= a and c + a <= b:
+    if a + b <= c or b + c <= a or c + a <= b:
         print("Invalid")
     elif a == b == c:
         print("Equilateral")
@@ -12,18 +32,21 @@ while True:
     else:
         print("Scalene")
 
-"""
 # 5073 
 while True:
     a, b, c = map(int, input().split())
     if (a, b, c) == (0, 0, 0):
         break
+    # isTrigangle 이런 것도 필요 없지 싶은데 음...뭔가 틀렸었다 홀린듯
     isTriangle = a + b > c and b + c > a and c + a > b
+    # 굳이 이렇게 안해도 되지 않나 한 번밖에 안 쓰는데 ㅎㅎ;;
     set_Isosceles = {a, b, c}
+    # not isTriagle
     if isTriangle is False:
         print("Invalid")
     elif a == b == c and a * b * c != 0:
         print("Equilateral")
+    #여기에 set_Isosceles 대신 {a,b,c}라고 간단히 해도 된다는 거지.
     elif len(set_Isosceles) == 2:
         print("Isosceles")
     else:
