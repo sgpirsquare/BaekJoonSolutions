@@ -1,14 +1,64 @@
+"""
+# 25372 개선하기
+n = int(input())
+for _ in range(n):
+    password = input()
+    # chained comparison
+    if 6 <= len(password) <= 9:
+        print("yes")
+    else:
+        print("no")
+# 25372
+n = int(input())
+for _ in range(n):
+    password_9 = input()
+    if len(password_9) >= 6 and len(password_9) <= 9:
+        print("yes")
+    else:
+        print("no")
+
+
+# 27433 챗지피티가 짠 프로그램
+# 재귀호출
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+n = int(input("Enter a non-negative integer: "))
+if n < 0:
+    print("Factorial is not defined for negative numbers.")
+else:
+    print(f"Factorial of {n} is: {factorial(n)}")
+
+
+# 27433 개선하고 실수했던 거 복기
+n = int(input())
+fact = 1
+if n == 0:
+    print(1)
+else:
+    # range를 빼먹고서는 계속 이상한값이 나와서 이상하게 생각했는데 팩토리얼 1문제를 보고 다시 떠올림
+    # 근데 range를 뺐는데도 왜 실행되었을까????!!!
+    # =>range를 빼면 (2, n+1) 파이썬에서 튜플형 자료다.
+    # 따라서 i가 2와 n+1을 순차적으로 순회함.
+    for i in range(2, n + 1):
+        #        fact = i * fact
+        fact *= i
+    print(fact)
+
 # 27433
 n = int(input())
 fact = 1
 if n == 0:
     print(1)
 else:
-    for i in (1, n + 1):
+    for i in range(2, n + 1):
         fact = i * fact
     print(fact)
 
-"""
 # 2338
 a = int(input())
 b = int(input())
