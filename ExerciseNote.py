@@ -1,4 +1,154 @@
+# 2231
+
+n = int(input())
+for i in range(len(str(n))):
+    sum += int(str(n)[i])
+print(sum)
+
 """
+
+# 2163 개선하기 가독성강화
+n, m = map(int, input().split())
+
+horizontal_cuts = n - 1
+vertical_cuts = (m - 1) * n
+
+result = horizontal_cuts + vertical_cuts
+print(result)
+
+# 2163
+n, m = map(int, input().split())
+print((n - 1) + ((m - 1) * n))
+
+# 2163 규칙찾기
+# 300 300
+
+# (300-1) + (300-1)*300
+
+# 1 1
+# 0=  (1-1) + (1-1)*1
+
+# 1 2
+# 1 = 1-1 + 2-1*1
+
+# 1 3
+# 1 1 = 1-1 + 3-1 * 1
+
+# 1 4
+# 1 1 1
+
+# 1 5
+# 1 1 1 1 1-1 5-1*1
+
+# 2 1
+# 1
+
+# 2 2
+# 1 1 1 (2-1) + (2-1)*2
+
+# 2 3
+# 1 1 1 1 1 2-1 + (3-1)*2
+# n-1 + (m-1)*n
+# 2 4
+# 1 1 1 1 1 1 1
+
+# 3 1
+# 1 1
+
+# 3 2
+# 1 1 1 1 1
+
+# 3 3
+# 1 1 1 1 1 1 1 1  (3-1) + (3-1)*3
+
+# 1 5
+# 1 1 1 1
+
+# 2 5
+# 1 1 1 1 1 1 1 1 1
+
+# 요까지가 2163 규칙찾는 과정
+
+# 2558
+a = int(input())
+b = int(input())
+print(a + b)
+# 2941
+alphabets = {c=, c-, dz=, d-, lj, nj, s=, z=}
+
+croatia_word = "ljes=njak"
+n = 0
+for alphabet in alphabets:
+    if alphabet in croatia_word:
+        n += 1
+
+print(n)
+
+
+# 11023
+print(sum(map(int, input().split())))
+
+# 32384
+print(int(input()) * "LoveisKoreaUniversity ")
+
+
+# 206307 함수화 예외처리 추가하기
+ 
+def minutes_since_9am(h, m):
+    # 입력값이 유효한지 체크
+    if not (0 <= h < 24 and 0 <= m < 60):
+        raise ValueError("Invalid time input")
+
+    # 9시 이전 입력에 대한 처리
+    if h < 9:
+        print("The time is before 9:00 AM.")
+        return
+
+    return (h - 9) * 60 + m
+
+# 사용자 입력
+h, m = map(int, input("Enter time (HH MM): ").split())
+try:
+    result = minutes_since_9am(h, m)
+    if result is not None:
+        print(f"Minutes since 9:00 AM: {result}")
+except ValueError as e:
+    print(e)
+
+
+# 26307
+h, m = map(int, input().split())
+print((h - 9) * 60 + m)
+
+
+# 28701 개선하기 빈복문 없애서 O(1)을 추구함
+n = int(input())
+x = n * (n + 1) // 2
+y = x**2
+
+print(x)
+print(x**2)
+print(y)
+
+# 28701
+n = int(input())
+(x, y) = (0, 0)
+for i in range(1, n + 1):
+    x += i
+    y += i**3
+print(x)
+print(x**2)
+print(y)
+
+# 15000 개선하기!
+# str 필요없음
+# int(input())은 가치가 있지만 str(input())은 역전 앞이랑 마찬가지임
+print(input()).upper()
+
+# 15000
+print(str(input()).upper())
+
+
 # 25372 개선하기
 n = int(input())
 for _ in range(n):
