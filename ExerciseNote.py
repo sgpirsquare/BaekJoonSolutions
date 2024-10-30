@@ -1,3 +1,13 @@
+# 27433
+n = int(input())
+fact = 1
+if n == 0:
+    print(1)
+else:
+    for i in (1, n + 1):
+        fact = i * fact
+    print(fact)
+
 """
 # 2338
 a = int(input())
@@ -5,6 +15,7 @@ b = int(input())
 print(a + b)
 print(a - b)
 print(a * b)
+
 # 5341 개선하기
 def sum_of_integers(n):
     return n * (n + 1) // 2
