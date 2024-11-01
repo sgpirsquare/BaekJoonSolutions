@@ -1,11 +1,93 @@
-# 2231
+# 2231 더 개선시키기
+def digits_sum(x):
+    # return sum(int(digit) for digit in str(x)) 대신 수학적 계산으로 할 수 있다
+    # 왠만하면 수학적 방법으로 해결가능하니 먼저 떠올려보자.
+    digit_sum = 0
+    while x > 0:
+        digit_sum += x % 10  # 일의 자리수를 더한다
+        x //= 10  # 일의 자리수를 없애고 자리수를 하나 줄인다
+    return digit_sum
+
 
 n = int(input())
-for i in range(len(str(n))):
-    sum += int(str(n)[i])
-print(sum)
+for i in range(1, n):
+    if i + digits_sum(i) == n:
+        print(i)
+        # 아..어차피 최솟값이니 이렇게 처리해도 되겠네;;
+        break
+else:  # for-else 구문
+    print(0)
 
 """
+# 2231 개선시키기
+def digits_sum(x):
+    return sum(int(digit) for digit in str(x))
+
+
+n = int(input())
+generator = 0
+for i in range(1, n):
+    if i + digits_sum(i) == n:
+        generator = i
+        # 아..어차피 최솟값이니 이렇게 처리해도 되겠네;;
+        break
+print(generator)
+
+
+# 2231
+
+# 우선 입력된 수의 각 자리수를 더하는 것부터 구현하자
+def digits_sum(x):
+    digit_sum = 0
+    for k in range(len(str(x))):
+        digit_sum += int(str(x)[k])
+    return digit_sum
+
+
+n = int(input())
+#리스트부터 만들어서 해결하려는 사고방식이 생겼네. 수학적해결 가능성이 보이면 그걸 우선 사고하자(예: 자리수 모두 합하기)
+generator_numbers = []
+
+for i in range(1, n):
+    if int(n) == i + digits_sum(i):
+        generator_numbers += [i]
+
+if generator_numbers:
+    print(int(min(generator_numbers)))
+else:
+    # generator_numbers=[]일때 0출력
+    print(0)
+
+# 2839 보류 안성재
+n = int(input())
+boxes = []
+for x in range(5000 // 3):
+    for y in range(5000 // 5):
+        if n == 3 * x + 5 * y:
+            boxes += [x + y]
+        else:
+            print(-1)
+print(min(boxes))
+
+
+# if plasticbag_3 * 3 + plasticbag_5 * 5 != n:
+# print(-1)
+# else:
+result = plasticbag_3 + plasticbag_5
+print(result)
+
+
+# 19532 보류 안성재
+a, b, c, d, e, f = map(int, input().split())
+
+determinant = 1 / (a * e - b * d)
+
+print(
+    int(determinant * (e * c - b * f)),
+    int(determinant * ((-d) * c + a * f)),
+)
+
+
 
 # 2163 개선하기 가독성강화
 n, m = map(int, input().split())
