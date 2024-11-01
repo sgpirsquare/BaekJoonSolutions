@@ -1,3 +1,60 @@
+# 19532 이걸 개선시키기 헉 첨삭 받음
+a, b, c, d, e, f = map(int, input().split())
+D = a * e - b * d
+
+print(
+    int((e * c - b * f) // D),
+    int(((-d) * c + a * f) // D),
+)
+
+"""
+# 19532 첨삭받기 챗지피티가 오히려 더 복잡하게 푸는듯? 첫번째 식을 y= 블라블라 식으로 고친 다음 두번째 식에 대입을 한다는 아이디어인데...
+# 시간복잡도가 O(n)이라서 성능면에선 더 효율적인 코드이다.
+
+a, b, c, d, e, f = map(int, input().split())
+
+for x in range(-999, 1000):
+    if b != 0:
+        # 첫 번째 방정식을 이용하여 y를 구함
+        y = (c - a * x) / b
+        if y.is_integer():  # y가 정수일 경우에만
+            y = int(y)  # 정수로 변환
+            if d * x + e * y == f:  # 두 번째 방정식도 만족하는지 확인
+                print(x, y)
+                break
+    else:
+        # b가 0인 경우: 첫 번째 방정식에서 a * x == c로 x 값 결정
+        if a != 0 and c % a == 0:
+            x = c // a
+            # 구한 x 값으로 y 값을 두 번째 방정식을 통해 확인
+            if e != 0:
+                y = (f - d * x) / e
+                if y.is_integer():  # y가 정수일 경우에만
+                    y = int(y)  # 정수로 변환
+                    print(x, y)
+                    break
+            elif d * x == f:  # e가 0이면서 두 번째 방정식을 만족할 경우
+                print(x, 0)
+                break
+
+
+# 19532 재시도 브루트포스 알고리즘인걸 깜빡했다;;;행렬식을 왜 쓰냐 허허허;;;==>맞췄다. ㅋㅋㅋㅋㅋㅋ야후~!
+# 위에 언급한대로 시간복잡도가 O(n^2)인 풀이이긴 하다
+a, b, c, d, e, f = map(int, input().split())
+for x in range(-999, 1000):
+    for y in range(-999, 1000):
+        if a * x + b * y == c and d * x + e * y == f:
+            print(x, y)
+
+# 19532 보류 안성재
+
+a, b, c, d, e, f = map(int, input().split())
+determinant = 1 / (a * e - b * d)
+
+print(
+    int(determinant * (e * c - b * f)),
+    int(determinant * ((-d) * c + a * f)),
+)
 # 2231 더 개선시키기
 def digits_sum(x):
     # return sum(int(digit) for digit in str(x)) 대신 수학적 계산으로 할 수 있다
@@ -18,7 +75,6 @@ for i in range(1, n):
 else:  # for-else 구문
     print(0)
 
-"""
 # 2231 개선시키기
 def digits_sum(x):
     return sum(int(digit) for digit in str(x))
@@ -76,16 +132,6 @@ print(min(boxes))
 result = plasticbag_3 + plasticbag_5
 print(result)
 
-
-# 19532 보류 안성재
-a, b, c, d, e, f = map(int, input().split())
-
-determinant = 1 / (a * e - b * d)
-
-print(
-    int(determinant * (e * c - b * f)),
-    int(determinant * ((-d) * c + a * f)),
-)
 
 
 
