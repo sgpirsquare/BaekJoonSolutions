@@ -1,3 +1,152 @@
+"""
+# 2839 흑백요리사 챗지피티의 첨삭이 시작된다 같은 브루트포스라도 단순 반복문으로 구현하지 않고 수학적인 해법을 먼저 생각하는 사고방식
+# 정수론, 방정식, 연립방정식, 부정방정식을 다양한 각도로 생각하게끔 하네.
+n = int(input())
+min_boxes = -1
+
+# range(시작,끝,단계(역순인지 두단계 뛸지인지))
+for y in range(n // 5, -1, -1):
+    reminder = n - 5 * y
+    if reminder % 3 == 0:
+        x = reminder // 3
+        min_boxes = x + y
+        break
+
+print(min_boxes)
+
+
+# 2839 보류 안성재=>코드가 이븐하게 익지 않았네요. 리스트는 왜 들어갔져?
+# 나폴리 마피아: ????
+
+n = int(input())
+boxes = []
+for x in range(5000 // 3 + 1):
+    for y in range(5000 // 5 + 1):
+        if n == 3 * x + 5 * y:
+            boxes += [x + y]
+if boxes == []:
+    print(-1)
+else:
+    print(min(boxes))
+    # print(boxes)
+# print(x + y)
+
+
+# 10988 반복문으로 개선하기 긴 문자열에선 오히려 효율적=>예전에 풀었던 문제인데도 기억이 안났다. 역시 첨삭해준 코드는 내것이 아니다. 내걸로 만들기 위한 작업은 직접 쳐보는 것이다.
+text = input()
+is_palindrome = 1
+for i in range(len(text) // 2):
+    if text[i] != text[-(i + 1)]:
+        is_palindrome = 0
+        break
+print(is_palindrome)
+
+# 10988 1259 연습
+# 10989 연습
+text = input()
+is_palindrome = True
+for i in range(len(text)//2):
+    if text[i]!=text[len(text)-i-1]:
+        is_palindrome=False
+        break
+print(is_palindrome)
+ 
+# 1259 연습
+while True:
+    n =input().split()
+    if n=='0':
+        break
+    
+    is_palindrome=True:
+    for i in range(len(n)//2):
+        if n[i]!=n[len(n)-i-1]:
+            is_palindrome=False
+    
+    if is_palindrome:
+        print('yes')
+    else:
+        print('no')
+
+
+# 1259 개선 리스트 안 쓰기
+while True:
+    n = input().strip()
+    if n == "0":
+        break
+
+    is_palindrome = True
+    length = len(n)
+
+    for i in range(length // 2):
+        if n[i] != n[length - i - 1]:
+            is_palindrome = False
+            break
+
+    if is_palindrome:
+        print("yes")
+    else:
+        print("no")
+
+
+# 1259 개선개선개선!!
+while True:
+    n = input().strip()
+    if n == "0":
+        break
+
+    if n == n[::-1]:
+        print("yes")
+    else:
+        print("no")
+
+
+# 1259
+while True:
+    n = input()
+    reverse_n = []
+
+    if int(n) == 0:
+        break
+    elif n == n[::-1]:
+        print("yes")
+        # if n[i] != n[-i - 1]:
+    else:
+        print("no")
+
+
+# 31403 다시 재개선 하기
+a = input()
+b = input()
+c = input()
+print(int(a) + int(b) - int(c))
+# 아? 이거 이렇게 바로 하면 되는거였네;;;
+
+# d = a + b 이렇게 하지말고
+# print(int(d) - int(c)) 이렇게 하지 말고
+
+print(int(a + b) - int(c))
+# 31403 개선하기
+a = input().strip()
+b = input().strip()
+c = input().strip()
+
+num_result = int(a) + int(b) - int(c)
+print(num_result)
+
+concat_result = int(a + b) - int(c)
+print(concat_result)
+
+
+# 31403 다시 재개선 하기
+a = input()
+b = input()
+c = input()
+print(int(a) + int(b) - int(c))
+
+d = a + b
+print(int(d) - int(c))
+
+
 # 19532 이걸 개선시키기 헉 첨삭 받음
 a, b, c, d, e, f = map(int, input().split())
 D = a * e - b * d
@@ -7,7 +156,6 @@ print(
     int(((-d) * c + a * f) // D),
 )
 
-"""
 # 19532 첨삭받기 챗지피티가 오히려 더 복잡하게 푸는듯? 첫번째 식을 y= 블라블라 식으로 고친 다음 두번째 식에 대입을 한다는 아이디어인데...
 # 시간복잡도가 O(n)이라서 성능면에선 더 효율적인 코드이다.
 
@@ -114,16 +262,6 @@ else:
     # generator_numbers=[]일때 0출력
     print(0)
 
-# 2839 보류 안성재
-n = int(input())
-boxes = []
-for x in range(5000 // 3):
-    for y in range(5000 // 5):
-        if n == 3 * x + 5 * y:
-            boxes += [x + y]
-        else:
-            print(-1)
-print(min(boxes))
 
 
 # if plasticbag_3 * 3 + plasticbag_5 * 5 != n:
