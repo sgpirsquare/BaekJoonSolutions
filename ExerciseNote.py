@@ -1,4 +1,57 @@
 """
+# 10809 습득 공부할 거리가 좀 있네
+
+# 10809 다른 각도에서 다시 보기 2 ==> find 함수 찾고자 하는 문자의 첫 위치를 반환함
+word_text = input()
+result_number = [word_text.find(chr(i)) for i in range(97, 123)]
+print(*result_number)
+
+# 10809 다른 각도에서 다시 보자 ==> 문자열 다루기 위해 필요한 함수 enumerate, ord, chr
+word_text = input()
+result_number = [-1] * 26
+
+for index, char in enumerate(word_text):
+    char_index = ord(char) - 97
+    if result_number[char_index] == -1:
+        result_number[char_index] = index
+    # 이 조건문은 -1이 아니면(알파벳이 발견되었으면) 알파벳 처음 발견된 인덱스를 갱신하지 않겠다는 의미. 최초 발견 인덱스만 넣겠다는 뜻.
+
+print(*result_number)
+
+
+# 10809 다른 방식으로 접근해보자=>겨우 풀긴했는데 상당히 저급;;;수준;;; why? 이중반복문에 리스트도 두 개나 만들어버림.
+word_text = list(input())
+alphabets_number = [[-1] for _ in range(97, 123)]
+for i in range(97, 123):
+    for j in range(len(word_text)):
+        if chr(i) == word_text[j]:
+            alphabets_number[i - 97] += [j]
+result_number = [0 for _ in range(97, 123)]
+
+for i in range(len(alphabets_number)):
+    if len(alphabets_number[i]) == 1:
+        result_number[i] = -1
+    else:
+        result_number[i] = alphabets_number[i][1]
+
+print(*result_number)
+
+
+# 10809 보류였는데
+word_text = list(input())
+alphabets_number = [-1 for _ in range(97, 123)]
+for i in range(97, 123):
+    for j in range(len(word_text)):
+        if word_text[j] != word_text[j + 1]:
+            pass
+            if chr(i) == word_text[j]:
+                alphabets_number[i - 97] = j
+print(*alphabets_number)
+
+# 1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+# a b  c  d e  f  g  h  i j k  l  m n o  p  q  r  s  t  u  v  w  x  y  z
+# 1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
 # 10250 보류 시도
 frequency = int(input())
 results = []
@@ -1173,17 +1226,6 @@ print(base_to_decimal(N, int(B)))
 width = int(input())
 length = int(input())
 print(width * length)
-
-# 10809
-word_text = list(input())
-alphabets_number = [-1 for _ in range(97, 123)]
-for i in range(97, 123):
-    for j in range(len(word_text)):
-        if word_text[j - 1] != word_text[j]:
-            pass
-            if chr(i) == word_text[j]:
-                alphabets_number[i - 97] = j
-print(*alphabets_number)
 
 # 2908 첨삭받은 후 리코딩
 number1, number2 = input().split()
