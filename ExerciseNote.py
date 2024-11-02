@@ -1,10 +1,22 @@
+# 2751  N(1 ≤ N ≤ 1,000,000) 이대로 짜면 시간 너무 걸린다? 시간복잡도는 O(NlogN)이라서 괜찮은데???
+# 입력방법을 바꿔보라고??
+# 그래도 시간초과되는데?
+import sys
+
+n = int(sys.stdin.readline())
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+arr.sort()
+print(*arr, sep="\n")
+
+"""
 # 25305
 n, k = map(int, input().split())
 score = list(map(int, input().split()))
 score.sort()
 print(score[-k])
 
-"""
 # 2587 문제조건이 제한되어 있어서 그렇지 사실은 퀵, 힙 등을 사용해야하는 엄청난 배경이 담긴 문제ㅣ다
 num = [int(input()) for _ in range(5)]
 num.sort()
