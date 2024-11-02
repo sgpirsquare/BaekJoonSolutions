@@ -1,4 +1,214 @@
 """
+# 10250 보류 시도
+frequency = int(input())
+results = []
+for _ in range(n):
+    h, w, n= map(int, input().split())
+    results.append(a + b)
+print("\n".join(map(str, results)))
+
+n = int(input())
+for _ in range(n):
+    a, b = map(int, input().split())
+    print(a + b)
+# 8370 개선시키기
+n1, k1, n2, k2 = map(int, input().split())
+total_score = n1 * k1 + n2 * k2
+print(total_score)
+
+# 8370
+n1, k1, n2, k2 = map(int, input().split())
+print(n1 * k1 + n2 * k2)
+
+# 7891 개선시키기
+
+n = int(input())
+results = []
+for _ in range(n):
+    a, b = map(int, input().split())
+    results.append(a + b)
+print("\n".join(map(str, results)))
+
+# 7891
+n = int(input())
+for _ in range(n):
+    a, b = map(int, input().split())
+    print(a + b)
+
+# 6840 list로 sort한 다음 중간값을 출력하게끔
+a = int(input())
+b = int(input())
+c = int(input())
+dishs = [a, b, c]
+dishs.sort()
+print(dishs[1])
+# 6840
+a = int(input())
+b = int(input())
+c = int(input())
+dishs = {a, b, c}
+for dish in dishs:
+    if max(dishs) > dish > min(dishs):
+        print(dish)
+# 5522 개선하기
+total = 0
+for i in range(5):
+    n = int(input())
+    total += n
+print(total)
+
+# 5522
+sum = 0
+for i in range(5):
+    n = int(input())
+    sum += n
+print(sum)
+
+
+# 5339
+print(
+    r'''     /~\
+    ( oo|
+    _\=/_
+   /  _  \
+  //|/.\|\\
+ ||  \ /  ||
+============
+|          |
+|          |
+|          |'''
+)
+
+
+# 5338
+# print(
+#            _.-;;-._
+# '-..-'|   ||   |
+# '-..-'|_.-;;-._|
+# '-..-'|   ||   |
+# '-..-'|_.-''-._|
+# )
+
+#5337
+print(r'''.  .   .
+|  | _ | _. _ ._ _  _
+|/\|(/.|(_.(_)[ | )(/.
+''')
+
+# 4999 개선코드
+def compare_strings(a: str, b: str) -> str:
+    #두 문자열의 길이를 비교하여 'go' 또는 'no'를 반환합니다.
+    if len(a) >= len(b):
+        return "go"
+    else:
+        return "no"
+
+
+# 사용자에게 입력 안내 메시지 제공
+a = input("첫 번째 문자열을 입력하세요: ").strip()
+b = input("두 번째 문자열을 입력하세요: ").strip()
+
+# 빈 입력이 있는지 확인
+if not a or not b:
+    print("입력이 유효하지 않습니다. 문자열을 입력해 주세요.")
+else:
+    # 비교 함수 호출 및 결과 출력
+    result = compare_strings(a, b)
+    print(result)
+
+
+# 4999
+a = input()
+b = input()
+if len(a) >= len(b):
+    print("go")
+else:
+    print("no")
+
+# 3733 개선하고자 한다 표준 입력 
+import sys
+
+# 개행되는 입력을 한줄씩 전부다 리스트 문자열 list str 로 처리한 뒤 저장한다.
+lines = sys.stdin.readlines()
+print(lines)
+for line in lines:
+    # strip()이 필요없다. split()하면서 공백이 지워짐
+    n, s = map(int, line.split())
+    print(n, s)
+    print(s // (n + 1))
+
+# 3733 #sys.stdin.readlines()는 여러 줄 표준 입력받고 처리하는 방법에 대한 문제. 문제 속 수학문제를 푸는 건 어렵지 않지만, 표준입력방법과 그 처리에 대한 공부를 하게 되는 문제다.
+import sys
+
+lines = sys.stdin.readlines()
+
+for line in lines:
+    # 나타났던 대표적인 오류 지금은 고쳤지만 'builtin_function_or_method' object is not iterable
+    # map 이라던지 함수만 있고 괄호가 닫혀있지 않다던지하면 생기는 오류임
+    n, s = map(int, line.strip().split())
+    print(s // (n + 1))
+
+
+# 2393 raw의 r을 붙여도 됨. 문제에 함정이 있었구만 이스케이프 역슬래시 역슬래시 역슬래시 역슬래시
+print(
+    r'''  ___  ___  ___
+  | |__| |__| |
+  |           |
+   \_________/
+    \_______/
+     |     |
+     |     |
+     |     |
+     |     |
+     |_____|
+  __/       \__
+ /             \
+/_______________\
+'''
+)
+# \<==이거 때문에 문제가 생기는 거였음 \ 이스케이프 문자
+
+
+# 2393 문제에 함정이 있었구만 이스케이프 역슬래시 역슬래시 역슬래시 역슬래시
+print(
+   '''  ___  ___  ___
+  | |__| |__| |
+  |           |
+   \_________/
+    \_______/
+     |     |
+     |     |
+     |     |
+     |     |
+     |_____|
+  __/       \__
+ /             \\
+/_______________\\
+'''
+)
+# \<==이거 때문에 문제가 생기는 거였음 \ 이스케이프 문자
+
+
+# 2393
+print("  ___  ___  ___")
+print("  | |__| |__| |")
+print("  |           |")
+print("   \_________/")
+print("    \_______/")
+print("     |     |")
+print("     |     |")
+print("     |     |")
+print("     |     |")
+print("     |_____|")
+print("  __/       \__")
+print(" /             \\")
+print("/_______________\\")
+
+
+#1436
+n=int(input())
+
+
 # 2839 흑백요리사 챗지피티의 첨삭이 시작된다 같은 브루트포스라도 단순 반복문으로 구현하지 않고 수학적인 해법을 먼저 생각하는 사고방식
 # 정수론, 방정식, 연립방정식, 부정방정식을 다양한 각도로 생각하게끔 하네.
 n = int(input())
