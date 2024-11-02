@@ -1,6 +1,8 @@
+"""
 # 2751  N(1 ≤ N ≤ 1,000,000) 이대로 짜면 시간 너무 걸린다? 시간복잡도는 O(NlogN)이라서 괜찮은데???
 # 입력방법을 바꿔보라고??
 # 그래도 시간초과되는데?
+# 보류여
 import sys
 
 n = int(sys.stdin.readline())
@@ -10,7 +12,6 @@ for _ in range(n):
 arr.sort()
 print(*arr, sep="\n")
 
-"""
 # 25305
 n, k = map(int, input().split())
 score = list(map(int, input().split()))
