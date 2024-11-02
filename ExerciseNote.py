@@ -1,4 +1,19 @@
 """
+# 5622 나중에 하지
+dialring = [
+    ["A", "B", "C"],
+    ["D", "E", "F"],
+    ["G", "H", "I"],
+    ["J", "K", "L"],
+    ["M", "N", "O"],
+    ["P", "Q", "R", "S"],
+    ["T", "U", "V"],
+    ["W", "X", "Y", "Z"],
+]
+sentence= input()
+for word in sentence:
+    if word in 
+print("D" in dialring[0])
 # 10809 습득 공부할 거리가 좀 있네
 
 # 10809 다른 각도에서 다시 보기 2 ==> find 함수 찾고자 하는 문자의 첫 위치를 반환함
