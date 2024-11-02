@@ -1,4 +1,34 @@
+# 25305
+n, k = map(int, input().split())
+score = list(map(int, input().split()))
+score.sort()
+print(score[-k])
+
 """
+# 2587 문제조건이 제한되어 있어서 그렇지 사실은 퀵, 힙 등을 사용해야하는 엄청난 배경이 담긴 문제ㅣ다
+num = [int(input()) for _ in range(5)]
+num.sort()
+print(sum(num) // 5)
+print(num[2])
+# 2750 개선시키기
+n = int(input())
+num = [int(input()) for _ in range(n)]
+num.sort()
+print(*num, sep="\n")
+
+
+# 2750
+n = int(input())
+num = []
+for i in range(n):
+    m = int(input())
+    # 아래 연산이 1+2+3...range(n)이라서 O(n^2) 복잡도를 갖는다. 의외네
+    num += [m]
+#함수 sorted()는 리스트를 한 개 더 만든다. 리스트는 적게 만들 수 있다면 적게 하는게 좋다. 메소드 sort()는 기존 존재하던 리스트의 원소들을 오름차순으로 정렬한다. 리스트를 더 만들지 않는다.
+for number in sorted(num):
+    print(number)
+
+
 # 5622 나중에 하지
 dialring = [
     ["A", "B", "C"],
