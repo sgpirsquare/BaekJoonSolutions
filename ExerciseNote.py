@@ -1,4 +1,61 @@
+# 2751 이렇게 극단적인 경우도 존재함!
+print(*sorted(map(int, [*open(0)][1:])))
+
+# 2751 피드백 받음 1<=N<=1,000,000 정도된다면 sys.stdin.readline() 추가처리없는 입력, 반복문으로 한줄씩 출력이 시간, 메모리에서 엄청나게 유리함.
+import sys
+
+n = int(sys.stdin.readline())
+arr = []
+for _ in range(n):
+    # 여기서도 input을 sys.stdin.readline()으로 해야 시간절약 됨.
+    # arr.append(int(input()))
+    arr.append(int(sys.stdin.readline()))
+arr.sort()
+# 이게 메모리를 많이 잡아먹는 방식이라고 함. 언패킹말여.
+# print(*arr, sep="\n")
+# 반복문으로 하나씩 출력하는게 오히려 시간이 적게 걸린다고 함.
+for i in range(n):
+    print(arr[i])
+
 """
+# 2751  N(1 ≤ N ≤ 1,000,000) 이대로 짜면 시간 너무 걸린다? 시간복잡도는 O(NlogN)이라서 괜찮은데???
+# 입력방법을 바꿔보라고??
+# 그래도 시간초과되는데?
+# 보류여
+# 이건 안 되는데 왜 아래 코드는 되는거지?
+import sys
+
+n = int(sys.stdin.readline())
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+arr.sort()
+# 이게 메모리를 많이 잡아먹는 방식이라고 함. 언패킹말여.
+print(*arr, sep="\n")
+
+# 2751 다른 사람 코드임 이건 python3로 제출해서 맞췄던데 차이가 뭐야
+import sys
+
+input = sys.stdin.readline
+
+N = int(input())
+l = [int(input()) for _ in range(N)]
+l.sort()
+
+for i in range(N):
+    print(l[i])
+
+# 2751  다시 시도하기 pypy3로 제출하니까 맞췄네? 뭐지??
+import heapq
+
+n = int(input())
+arr = []
+for _ in range(n):
+    heapq.heappush(arr, int(input()))
+for _ in range(n):
+    print(heapq.heappop(arr))
+
+
 # 24313 구글링으로 답을 봐버리고 말았는데 f와 g의 그래프(직선의 방정식, 일차함수)를 그려보면 기존 내 코드가 왜 틀렸는지 더 수긍이 가게 되어있다.
 a1, a0 = map(int, input().split())
 c = int(input())
@@ -74,18 +131,6 @@ else:
 
 # 10989 수 정렬하기 3 1<=N<=10,000,000 구현만 한다고 절대 득점하지 못 한다;;;공부가 필요하겠다.
 
-# 2751  N(1 ≤ N ≤ 1,000,000) 이대로 짜면 시간 너무 걸린다? 시간복잡도는 O(NlogN)이라서 괜찮은데???
-# 입력방법을 바꿔보라고??
-# 그래도 시간초과되는데?
-# 보류여
-import sys
-
-n = int(sys.stdin.readline())
-arr = []
-for _ in range(n):
-    arr.append(int(input()))
-arr.sort()
-print(*arr, sep="\n")
 
 # 25305
 n, k = map(int, input().split())
