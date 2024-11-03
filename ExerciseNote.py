@@ -1,6 +1,79 @@
-# 10989 수 정렬하기 3 1<=N<=10,000,000 구현만 한다고 절대 득점하지 못 한다;;;
-
 """
+# 24313 구글링으로 답을 봐버리고 말았는데 f와 g의 그래프(직선의 방정식, 일차함수)를 그려보면 기존 내 코드가 왜 틀렸는지 더 수긍이 가게 되어있다.
+a1, a0 = map(int, input().split())
+c = int(input())
+n0 = int(input())
+
+f = a1 * n0 + a0
+g = c * n0
+
+if g - f >= 0 and c >= a1:
+    print(1)
+else:
+    print(0)
+
+# n >= n0
+
+# 아래는 필요없다.
+# f1 = a1 * (n0 + 1) + a0
+# g1 = c * (n0 + 1)
+
+# 24313 if 조건문이 필요한 이유 matplotlib로 그린 것 코드
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 예시 값을 설정합니다.
+a1, a0 = 2, 1  # f(n)의 계수와 상수항
+c = 3  # g(n)의 계수
+n0 = 1  # 시작점 n0
+
+# n 범위 설정
+n = np.linspace(0, 10, 400)  # 0에서 10까지 400개의 점을 생성합니다.
+
+# 함수 정의
+f_n = a1 * n + a0
+g_n = c * n
+
+# 그래프 그리기
+plt.plot(n, f_n, label="f(n) = a1 * n + a0", color="blue")
+plt.plot(n, g_n, label="g(n) = c * n", color="red")
+plt.axvline(x=n0, color="green", linestyle="--", label="n0")
+
+# 교차점 이후의 조건 영역 표시
+plt.fill_between(n, f_n, g_n, where=(n >= n0) & (f_n <= g_n), color="yellow", alpha=0.2)
+
+# 그래프 설명
+plt.xlabel("n")
+plt.ylabel("Function values")
+plt.legend()
+plt.title("Graph of f(n) and g(n) with condition f(n) <= g(n) for n >= n0")
+plt.grid(True)
+
+plt.show()
+
+
+
+# 24313 틀렸다.
+a1, a0 = map(int, input().split())
+c = int(input())
+n0 = int(input())
+
+# n >= n0
+f = a1 * n0 + a0
+g = c * n0
+
+f1 = a1 * (n0 + 1) + a0
+g1 = c * (n0 + 1)
+
+
+if g - f >= 0 and g1 - f1 >= 0:
+    print(1)
+else:
+    print(0)
+
+# 10989 수 정렬하기 3 1<=N<=10,000,000 구현만 한다고 절대 득점하지 못 한다;;;공부가 필요하겠다.
+
 # 2751  N(1 ≤ N ≤ 1,000,000) 이대로 짜면 시간 너무 걸린다? 시간복잡도는 O(NlogN)이라서 괜찮은데???
 # 입력방법을 바꿔보라고??
 # 그래도 시간초과되는데?
