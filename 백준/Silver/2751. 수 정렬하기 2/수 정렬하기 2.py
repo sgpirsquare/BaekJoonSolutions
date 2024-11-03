@@ -1,8 +1,8 @@
-import heapq
-
-n = int(input())
+import sys
+n = int(sys.stdin.readline())
 arr = []
 for _ in range(n):
-    heapq.heappush(arr, int(input()))
-for _ in range(n):
-    print(heapq.heappop(arr))
+    arr.append(int(sys.stdin.readline()))
+arr.sort()
+for i in range(n):
+    print(arr[i])
