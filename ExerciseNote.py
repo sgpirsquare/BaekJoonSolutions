@@ -8,16 +8,21 @@
 # number = [0] * 10000
 # 또한 입력 출력도 왠만하면 시간을 줄일 수 있는 방법으로 최대한 선택해야한다.
 # 잠깐..---수의 범위가 작다면 카운팅 정렬을 사용하여 더욱 빠르게 정렬할 수 있습니다.---라고 설명이 되어있었네?!!!???
-import sys
+# import sys
 
-input = sys.stdin.readline
-n = int(input())
-num_list = [0] * 10001
-for i in range(n):
-    num_list[int(input().rstrip())] += 1
-for i in range(10001):
-    if num_list[i] != 0:
-        print(num_list[i])
+# input = sys.stdin.readline
+# n = int(input())
+# num_list = [0] * 10001
+# for i in range(n):
+#     num_list[int(input().rstrip())] += 1
+# for i in range(10001):
+#     if num_list[i] != 0:
+#         print(num_list[i])
+
+# 계수 정렬 연습
+arr = [4, 2, 2, 8, 3, 3, 1]
+cnt = [0] * max(arr)
+print(cnt)
 
 
 """
