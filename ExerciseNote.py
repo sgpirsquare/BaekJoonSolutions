@@ -1,10 +1,58 @@
-# 1978 소수 찾기 N<-=100 N개의 수 <=1000 잠시 보류
-N = int(input())
-
-numlist = map(int, input().split())
-print(numlist)
-
 """
+# 1978 개선하기
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+
+N = int(input())
+numlist = map(int, input().split())
+
+primes = sum(1 for number in numlist if is_prime(number))
+
+print(primes)
+
+# 1978 이렇게 짠 코드도 있음 헉! 소수개수 세는걸 따로 안 하고 그냥 n으로 퉁침.
+n = int(input())
+nums = list(map(int, input().split()))
+
+for num in nums:
+  if num < 2:
+    n -= 1
+    continue
+  
+  for i in range(2, num):
+    if num % i == 0:
+      n -= 1
+      break
+
+print(n)
+
+# 1978 소수 찾기 N<-=100 N개의 수 <=1000 잠시 보류
+# 챗지피티 code tutor의 도움을 받았다
+# 도움받고 나니 나혼자 생각해서 끝까지 풀었어야 했다는 찜찜한 생각을 지울 수 없다.으으!!
+N = int(input())
+numlist = map(int, input().split())
+
+primes = 0
+
+for number in numlist:
+    if number <= 1:
+        pass
+    else:
+        for i in range(2, int((number**0.5) + 1)):
+            if number % i == 0:
+                break
+        else:
+            primes += 1
+
+print(primes)
+
+
 # 10989 계수 정렬 counting sort 코드 개선 => 이건 안 됨. 메모리 제한이 빡빡한 경우는 하나씩 출력하는게 더 나음.
 import sys
 
