@@ -1,3 +1,30 @@
+# 1978 소수 찾기 N<-=100 N개의 수 <=1000 잠시 보류
+N = int(input())
+
+numlist = map(int, input().split())
+print(numlist)
+
+"""
+# 10989 계수 정렬 counting sort 코드 개선 => 이건 안 됨. 메모리 제한이 빡빡한 경우는 하나씩 출력하는게 더 나음.
+import sys
+
+input = sys.stdin.readline
+# output은 생각보다 메모리를 상대적으로 더 잡아먹음 print가 차라리 나음
+output = sys.stdout.write
+
+n = int(input())
+num_list = [0] * 10001
+for i in range(n):
+    num_list[int(input())] += 1
+for i in range(10001):
+    if num_list[i] != 0:
+        output((str(i) + "\n") * num_list[i])
+        # 이렇게 개선해야 함
+        # for _ in range(num_list[i]):
+        #     output("f{i}\n")
+        # 위 코드도 사실 메모리를 상대적으로 더 잡아먹음
+        # 차라리 아래처럼 해야 함.
+        # print(i)
 # 10989 계수 정렬 counting sort 연습 입출력 추가!!!?
 # 이걸로 제출했는데 통과했다!?!!!와우!!!
 # 14트만에!휴!!!와..자료구조와 알고리즘의 중요성....
@@ -15,7 +42,6 @@ for i in range(10001):
         for j in range(num_list[i]):
             print(i)
 
-"""
 
 arr = [4, 2, 2, 8, 3, 9, 10, 5, 3, 5, 3, 1]
 cnt = [0] * max(arr)
@@ -86,12 +112,6 @@ numbers.sort()
 for i in range(n):
     print(numbers[i])
 
-
-# 1978 소수 찾기 N<-=100 N개의 수 <=1000 잠시 보류
-N = int(input())
-
-numlist = map(int, input().split())
-print(numlist)
 
 
 # 2751 이렇게 극단적인 경우도 존재함! 속도 input()<sys.stdin.readline() open(0)
