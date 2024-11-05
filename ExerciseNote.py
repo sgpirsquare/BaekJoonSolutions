@@ -42,17 +42,6 @@ for i in range(10001):
         for j in range(num_list[i]):
             print(i)
 
-
-arr = [4, 2, 2, 8, 3, 9, 10, 5, 3, 5, 3, 1]
-cnt = [0] * max(arr)
-for i in arr:
-    cnt[i - 1] += 1
-
-for i in range(max(arr)):
-    for j in range(cnt[i]):
-        print(i + 1)
-
-
 # 10989 문제해결을 위한 계수 정렬 연습 counting sort
 import sys
 
