@@ -1,4 +1,35 @@
 """
+# 16170 개선하기
+from datetime import datetime, timedelta
+
+utc_now = datetime.utcnow()
+seoul_time = utc_now + timedelta(hours=9)
+
+print(seoul_time.year)
+print(seoul_time.month)
+print(seoul_time.day)
+
+# 16170 시간다루기 공식문서를 읽고 해석하려 노력했지만 코드 튜터의 도움으로 그걸 알게 되었다.
+# datetime objects에서 class datetime.datetime() 이렇게 사용하는게 기본이고
+# object>class>(class)method의 위계가 있기때문에 사용할때 주의해야한다.
+from datetime import datetime
+
+utc_now = datetime.utcnow()
+seoul_time = utc_now.replace(hour=(utc_now.hour + 9) % 24)
+
+print(seoul_time.year)
+print(seoul_time.month)
+print(seoul_time.day)
+
+# 16170 다른 사람 코드
+import datetime
+
+time = datetime.datetime.now() - datetime.timedelta(hours = 9)
+
+print(time.year)
+print(time.month)
+print(time.day)
+
 # 1978 개선하기
 def is_prime(number):
     if number <= 1:
