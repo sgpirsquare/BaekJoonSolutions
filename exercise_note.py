@@ -1,3 +1,17 @@
+# pylint 오류메시지 끄기
+# 학습용 파일이다보니 아래 세 개 경고는 잠시 꺼둬야겠다.
+# pylint: disable=W1401  # anomalous backslash in string
+# pylint: disable=C0302  # too many lines in module
+# pylint: disable=C0301  # line too long
+
+
+"""
+# 30328 개선하기
+n = print(4000 * int(input()))
+
+# 30328 예능용 문제인듯
+n = int(input())
+print(4000 * n)
 # 1934 개선하기
 from math import lcm
 
@@ -13,7 +27,6 @@ for _ in range(n):
 
 print("\n".join(results))
 
-"""
 # 1934
 from math import gcd, lcm
 
