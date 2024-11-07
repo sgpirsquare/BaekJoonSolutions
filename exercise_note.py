@@ -1,4 +1,126 @@
+# 1934 개선하기
+from math import lcm
+
+n = int(input())
+results = []
+
+for _ in range(n):
+    try:
+        num1, num2 = map(int, input().split())
+        results.append(str(lcm(num1, num2)))
+    except ValueError:
+        print("Invalid input. Please enter two integers.")
+
+print("\n".join(results))
+
 """
+# 1934
+from math import gcd, lcm
+
+n = int(input())
+for _ in range(n):
+    a, b = map(int, input().split())
+    print(lcm(a, b))
+
+# 2609 개선하기
+import math
+
+a, b = map(int, input().split())
+gcd = math.gcd(a, b)
+lcm = math.lcm(a, b)
+# lcm = (a * b) // gcd
+print(gcd)
+print(lcm)
+
+# 2609
+a, b = map(int, input().split())
+gcd = 0
+for i in range(1, max(a, b) + 1):
+    if a % i == 0 and b % i == 0:
+        gcd = i
+
+print(gcd)
+print(int(a // gcd) * b)
+
+# 10828 딕셔너리를 사용하자 당장은 보류. 챗지피티에 너무 의존하는 경향성때문에 이건 스포를 봐버렸다.
+# 물론 코드를 스쳐봐서 아예 짤 수 있는 상태는 아니지만....
+# 그 정도만으론 체화되지 않기 때문에 절대 천재가 아닌 이상 그렇게는 되살려 짜지 못 한다는 걸 이 글을 읽는 사람 누구나 공감할거다.
+# 답 안볼래
+n = int(input())
+for _ in range(n):
+    command = list(map(str, input().split()))
+
+print(command)
+
+
+push x top size empty pop 
+14
+n=int(input())
+
+stack=[]
+
+push 1
+stack.append(1)
+
+push 2
+stack.append(2)
+
+top
+stack[-1]
+
+size
+len(stack)
+
+empty
+if stack:
+    print(1)
+    else:
+        print(0)
+
+pop
+if stack:
+    stack.pop()
+else:
+    print(-1)
+
+stack.pop if stack else print(-1)
+
+pop
+if stack:
+    stack.pop()
+else:
+    print(-1)
+
+pop
+if stack:
+    stack.pop()
+else:
+    print(-1)
+
+size
+len(stack)
+
+empty
+if stack:
+    print(1)
+    else:
+        print(0)
+
+pop
+if stack:
+    stack.pop()
+else:
+    print(-1)
+
+push 3
+
+empty
+top
+
+# 21598 예능용문제인가;
+N = int(input())
+for _ in range(N):
+    print("SciComLove", end="\n")
 # 16170 개선하기
 from datetime import datetime, timedelta
 
