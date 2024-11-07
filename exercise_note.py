@@ -3,7 +3,17 @@
 # pylint: disable=W1401  # anomalous backslash in string
 # pylint: disable=C0302  # too many lines in module
 # pylint: disable=C0301  # line too long
+########################################################
+# 에라토스테네스의 체
+def is_prime(n):
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
+
+number = int(input())
+print(is_prime(number))
 
 """
 # 30328 개선하기
