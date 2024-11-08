@@ -1,10 +1,20 @@
 # pylint 오류메시지 끄기
-# 학습용 파일이다보니 아래 세 개 경고는 잠시 꺼둬야겠다.
+# 학습용 파일이다보니 아래 세 개 경고는 잠시 끕니다.
 # pylint: disable=W1401  # anomalous backslash in string
 # pylint: disable=C0302  # too many lines in module
 # pylint: disable=C0301  # line too long
 ########################################################
+
 # 에라토스테네스의 체
+
+N = 30
+numbers = [i for i in range(2, 31)]
+divisors = [i for i in range(2, int(30**0.5) + 1)]
+print(numbers)
+print(divisors)
+
+# 소수 판정 함수
+"""
 def is_prime(n):
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
@@ -14,8 +24,6 @@ def is_prime(n):
 
 number = int(input())
 print(is_prime(number))
-
-"""
 # 30328 개선하기
 n = print(4000 * int(input()))
 
