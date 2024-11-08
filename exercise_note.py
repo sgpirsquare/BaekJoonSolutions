@@ -10,11 +10,11 @@
 N = 30
 numbers = [i for i in range(2, 31)]
 divisors = [i for i in range(2, int(30**0.5) + 1)]
-print(numbers)
-print(divisors)
+
+
+"""
 
 # 소수 판정 함수
-"""
 def is_prime(n):
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
