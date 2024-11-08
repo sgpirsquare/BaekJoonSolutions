@@ -12,6 +12,7 @@ n = print(4000 * int(input()))
 # 30328 예능용 문제인듯
 n = int(input())
 print(4000 * n)
+
 # 1934 개선하기
 from math import lcm
 
