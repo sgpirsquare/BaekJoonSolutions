@@ -11,6 +11,21 @@ N = 30
 numbers = [i for i in range(2, 31)]
 divisors = [i for i in range(2, int(30**0.5) + 1)]
 
+# for divisor in divisors:
+#     numbers = [
+#         number for number in numbers if number == divisor or number % divisor != 0
+#     ]
+
+for divisor in divisors:
+    new_numbers = []
+    for number in numbers:
+        if number == divisor or number % divisor != 0:
+            new_numbers.append(number)
+
+    numbers = new_numbers
+
+
+print(numbers)
 
 """
 
