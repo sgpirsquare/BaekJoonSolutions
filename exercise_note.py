@@ -5,6 +5,45 @@
 # pylint: disable=C0301  # line too long
 ########################################################
 
+# 9295
+T = int(input())
+for i in range(T):
+    num1, num2 = map(int, input().split())
+    print(f"Case {i+1}: {num1+num2}")
+"""
+# 24736
+T, F, S, P, C = map(int, input().split())
+Ta, Fa, Sa, Pa, Ca = map(int, input().split())
+
+print(6 * T + 3 * F + 2 * S + P + 2 * C, 6 * Ta + 3 * Fa + 2 * Sa + Pa + 2 * Ca)
+
+# 22193
+N, M = map(int, input().split())
+A = int(input())
+B = int(input())
+print(A * B)
+
+# 24883
+alphabet = input()
+if alphabet == "N" or alphabet == "n":
+    print("Naver D2")
+else:
+    print("Naver Whale")
+
+# # 10189
+# print(
+#     #  # #### #### #  #
+# #### #  # #  # # #
+# #### #  # #  # # #
+# #  # #### #### #  #
+# )
+# 15963
+N, M = map(int, input().split())
+print("1" if N == M else "0")
+
+# 16430
+a, b = map(int, input().split())
+print(b - a, b)
 # 에라토스테네스의 체
 
 N = 30
@@ -27,7 +66,6 @@ for divisor in divisors:
 
 print(numbers)
 
-"""
 
 # 소수 판정 함수
 def is_prime(n):
