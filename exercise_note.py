@@ -5,45 +5,39 @@
 # pylint: disable=C0301  # line too long
 ########################################################
 
-# 9295
-T = int(input())
-for i in range(T):
-    num1, num2 = map(int, input().split())
-    print(f"Case {i+1}: {num1+num2}")
+# 1929 개선하기
+M, N = map(int, input().split())
+
+if M < 2:
+    M = 2
+
+is_prime = [True] * (N + 1)
+is_prime[0] = is_prime[1] = False
+
+for i in range(2, int(N**0.5) + 1):
+    if is_prime[i]:
+        for j in range(i * i, N + 1, i):
+            is_prime[j] = False
+
+primes = [i for i in range(M, N + 1) if is_prime[i]]
+
+for prime in primes:
+    print(prime)
+
 """
-# 24736
-T, F, S, P, C = map(int, input().split())
-Ta, Fa, Sa, Pa, Ca = map(int, input().split())
+# 1929
+M, N = map(int, input().split())
+if M == 1:
+    M += 1
+numbers = [i for i in range(M, N + 1)]
+divisors = [i for i in range(2, int(N**0.5) + 1)]
+for divisor in divisors:
+    numbers = [
+        number for number in numbers if number == divisor or number % divisor != 0
+    ]
 
-print(6 * T + 3 * F + 2 * S + P + 2 * C, 6 * Ta + 3 * Fa + 2 * Sa + Pa + 2 * Ca)
-
-# 22193
-N, M = map(int, input().split())
-A = int(input())
-B = int(input())
-print(A * B)
-
-# 24883
-alphabet = input()
-if alphabet == "N" or alphabet == "n":
-    print("Naver D2")
-else:
-    print("Naver Whale")
-
-# # 10189
-# print(
-#     #  # #### #### #  #
-# #### #  # #  # # #
-# #### #  # #  # # #
-# #  # #### #### #  #
-# )
-# 15963
-N, M = map(int, input().split())
-print("1" if N == M else "0")
-
-# 16430
-a, b = map(int, input().split())
-print(b - a, b)
+for number in numbers:
+    print(number)
 # 에라토스테네스의 체
 
 N = 30
@@ -79,6 +73,47 @@ number = int(input())
 print(is_prime(number))
 # 30328 개선하기
 n = print(4000 * int(input()))
+
+# 9295
+T = int(input())
+for i in range(T):
+    num1, num2 = map(int, input().split())
+    print(f"Case {i+1}: {num1+num2}")
+    
+# 24736
+T, F, S, P, C = map(int, input().split())
+Ta, Fa, Sa, Pa, Ca = map(int, input().split())
+
+print(6 * T + 3 * F + 2 * S + P + 2 * C, 6 * Ta + 3 * Fa + 2 * Sa + Pa + 2 * Ca)
+
+# 22193
+N, M = map(int, input().split())
+A = int(input())
+B = int(input())
+print(A * B)
+
+# 24883
+alphabet = input()
+if alphabet == "N" or alphabet == "n":
+    print("Naver D2")
+else:
+    print("Naver Whale")
+
+# # 10189
+# print(
+#     #  # #### #### #  #
+# #### #  # #  # # #
+# #### #  # #  # # #
+# #  # #### #### #  #
+# )
+# 15963
+N, M = map(int, input().split())
+print("1" if N == M else "0")
+
+# 16430
+a, b = map(int, input().split())
+print(b - a, b)
+
 
 # 30328 예능용 문제인듯
 n = int(input())
