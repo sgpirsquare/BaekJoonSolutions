@@ -4,8 +4,61 @@
 # pylint: disable=C0302  # too many lines in module
 # pylint: disable=C0301  # line too long
 ########################################################
+# 1934 math 모듈 사용하지 않고 유클리드 호제법 사용해서
 
-# 1929 개선하기
+T = int(input())
+
+
+# 유클리드 호제법
+def gcd(a, b):
+    while b:
+        # a == b * q + r a % b
+        a, b = b, a % b
+    return a
+
+
+def lcm(a, b):
+    return a * b // gcd(a, b)
+
+
+for i in range(T):
+    A, B = map(int, input().split())
+    print(lcm(A, B))
+
+"""
+# 1934 math 내장 모듈?라이브러리?써서 사용한 버전
+import math
+
+T = int(input())
+
+for i in range(T):
+    A, B = map(int, input().split())
+    print(math.lcm(A, B))
+
+
+# 1929 개선하기 에라토스테네스의 체 ver 2 이 방법은 리스트를 ver1에 비해 for문 돌때마다 참조한다는 것 시간복잡도가 올라간다
+M, N = map(int, input().split())
+
+if M < 2:
+    M = 2
+
+
+def get_prime(M, N):
+    numbers = [i for i in range(M, N + 1)]
+    divisors = [i for i in range(2, int(N**0.5) + 1)]
+    for divisor in divisors:
+        numbers = [
+            number for number in numbers if number % divisor != 0 or number == divisor
+        ]
+    return numbers
+
+
+primes = get_prime(M, N)
+
+for prime in primes:
+    print(prime)
+
+# 1929 개선하기 에라토스테네스의 체 ver 1 현재로선 이게 제일 나은듯? 정통 에라토스테네스의 체
 M, N = map(int, input().split())
 
 if M < 2:
@@ -24,7 +77,6 @@ primes = [i for i in range(M, N + 1) if is_prime[i]]
 for prime in primes:
     print(prime)
 
-"""
 # 1929
 M, N = map(int, input().split())
 if M == 1:
