@@ -4,6 +4,106 @@
 # pylint: disable=C0302  # too many lines in module
 # pylint: disable=C0301  # line too long
 ########################################################
+"""
+# INDEX 백준 문제풀이 모음
+
+1. 최근에 해결한 문제는 맨 위에 있습니다.
+
+2. 잘 안 풀리거나 풀고 있는 문제에는 보류 키워드를 넣었습니다.
+
+3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
+"""
+
+# 16430 개선하기
+import sys
+
+lines = [list(sys.stdin.readline().strip()) for _ in range(8)]
+print(lines)
+count = 0
+
+for i in range(8):
+    for j in range(8):
+        # 흰색부터 시작하는 8*8 체스판을 직접 그려보고 행과 열로 주소를 매기고 관찰하면 떠오르는 수식
+        # 이를 위해선 반복문이 두 개 생기는 것에 대한 불편함을 느낄 필요가 있었다.
+        if (i + j) % 2 == 0 and lines[i][j] == "F":
+            count += 1
+
+print(count)
+
+"""
+# 16430
+import sys
+
+lines = []
+for i in range(8):
+    lines += [list(sys.stdin.readline())]
+
+count = 0
+
+for i in range(0, 8, 2):
+    for j in range(0, 8, 2):
+        if lines[i][j] == "F":
+            count += 1
+
+for i in range(1, 8, 2):
+    for j in range(1, 8, 2):
+        if lines[i][j] == "F":
+            count += 1
+
+
+print(count)
+
+# count = 0
+# for i in range(0, 8, 2):
+#     if pieces[i] == "F":
+#         count += 1
+# for i in range(1, 8, 2):
+#     if pieces[i] == "F":
+#         count += 1
+# print(count)
+
+.F.F...F
+F...F.F.
+...F.F.F
+F.F...F.
+.F...F..
+F...F.F.
+.F.F.F.F
+..FF..F.
+
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBWBWBW
+# 10872, #27433과 차이 20!까지 물어보느냐 12!까지 물어보느냐
+# 파이썬에서는 상관없지만 C++이나 다른 여타 언어에서는 처리를 다르게 해줘야한다.
+
+
+# 아래는 이전에 썼던 재귀 팩토리얼 함수
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# 아래는 20241119화요일에 생각한 함수
+def factorial(n):
+    fact = 1
+    for i in range(n, 1, -1):
+        fact *= i
+    return fact
+
+N = int(input())
+
+if N == 0:
+    print(1)
+else:
+    print(factorial(N))
+
 # 1934 math 모듈 사용하지 않고 유클리드 호제법 사용해서
 
 T = int(input())
@@ -25,7 +125,6 @@ for i in range(T):
     A, B = map(int, input().split())
     print(lcm(A, B))
 
-"""
 # 1934 math 내장 모듈?라이브러리?써서 사용한 버전
 import math
 
@@ -2358,7 +2457,7 @@ print(d1[grade])
 
 
 
-# since 2020
+# 아래있는 코드들은 2020년까지 기록해놓았던 것. since 2020
 
 # 백준 코드 연습 및 기록 남겨놓기 
 # 다른 사람것도 참고하기
