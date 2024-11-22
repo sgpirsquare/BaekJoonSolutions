@@ -9,11 +9,56 @@
 
 1. 최근에 해결한 문제는 맨 위에 있습니다.
 
-2. 잘 안 풀리거나 풀고 있는 문제에는 보류 키워드를 넣었습니다.
+2. 잘 안 풀리거나 풀고 있는 문제에는 '보류' 키워드를 넣었습니다.
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 26575
+n= int(input())
+for _ in range(n):
+    d,f,p=map(float,input().split())
+    # 기초를 잊고 있었다. :.2f 형식으로 출력하는 법이라
+    print(f'${round(d*f*p,2):.2f}')
 
+"""
+# 21300
+b1, b2, b3, b4, b5, b6 = map(int, input().split())
+
+print(5 * (b1 + b2 + b3 + b4 + b5 + b6))
+
+# 16394
+print(int(input()) - 1946)
+
+# 9654
+
+# print(
+#     SHIP NAME      CLASS          DEPLOYMENT IN SERVICE
+# N2 Bomber      Heavy Fighter  Limited    21        
+# J-Type 327     Light Combat   Unlimited  1         
+# NX Cruiser     Medium Fighter Limited    18        
+# N1 Starfighter Medium Fighter Unlimited  25        
+# Royal Cruiser  Light Combat   Limited    4         
+# 
+# )
+
+# 2004 시간초과 코드 n,m이 20억범위임 궁리중 보류
+
+import math
+
+n, m = map(int, input().split())
+
+combi = str(math.comb(n, m))
+print(combi)
+
+cnt = 0
+
+for i in range(len(combi)):
+    if int(combi[-i - 1]) == 0:
+        cnt += 1
+    else:
+        break
+
+print(cnt)
 # 16430 개선하기
 import sys
 
@@ -30,7 +75,6 @@ for i in range(8):
 
 print(count)
 
-"""
 # 16430
 import sys
 
