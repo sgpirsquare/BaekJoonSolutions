@@ -13,14 +13,27 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 26575
-n= int(input())
-for _ in range(n):
-    d,f,p=map(float,input().split())
-    # 기초를 잊고 있었다. :.2f 형식으로 출력하는 법이라
-    print(f'${round(d*f*p,2):.2f}')
+# 17388
+S, K, H = map(int, input().split())
+
+if S + K + H >= 100:
+    print("OK")
+else:
+    if min(S, K, H) == S:
+        print("Soongsil")
+    if min(S, K, H) == K:
+        print("Korea")
+    if min(S, K, H) == H:
+        print("Hanyang")
 
 """
+# 26575
+n = int(input())
+for _ in range(n):
+    d, f, p = map(float, input().split())
+    # 기초를 잊고 있었다. :.2f 형식으로 출력하는 법이라
+    print(f"${round(d*f*p,2):.2f}")
+
 # 21300
 b1, b2, b3, b4, b5, b6 = map(int, input().split())
 
