@@ -13,6 +13,17 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 17388 개선하기 딕셔너리 사용하기
+S, K, H = map(int, input().split())
+
+if S + K + H >= 100:
+    print("OK")
+else:
+    scores = {"Soongsil":S, "Korea":K, "Hanyang",H)
+    print(min(scores, key=scores.get))
+
+"""
+
 # 17388
 S, K, H = map(int, input().split())
 
@@ -26,7 +37,6 @@ else:
     if min(S, K, H) == H:
         print("Hanyang")
 
-"""
 # 26575
 n = int(input())
 for _ in range(n):
