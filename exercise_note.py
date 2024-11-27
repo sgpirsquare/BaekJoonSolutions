@@ -19,7 +19,7 @@ S, K, H = map(int, input().split())
 if S + K + H >= 100:
     print("OK")
 else:
-    scores = {"Soongsil":S, "Korea":K, "Hanyang",H)
+    scores = {"Soongsil": S, "Korea": K, "Hanyang": H}
     print(min(scores, key=scores.get))
 
 """
