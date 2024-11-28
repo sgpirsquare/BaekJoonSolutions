@@ -1,8 +1,13 @@
+########################################################
 # pylint 오류메시지 끄기
 # 학습용 파일이다보니 아래 세 개 경고는 잠시 끕니다.
 # pylint: disable=W1401  # anomalous backslash in string
 # pylint: disable=C0302  # too many lines in module
 # pylint: disable=C0301  # line too long
+# pylint: disable=W0105
+########################################################
+# pylance 오류메시지 끄기
+# pyright: reportInvalidStringEscapeSequence=false
 ########################################################
 """
 # INDEX 백준 문제풀이 모음
@@ -13,6 +18,56 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 25238
+a, b = map(int, input().split())
+
+"""
+# 30087
+N = int(input())
+
+seminar_room = {
+    "Algorithm": "204",
+    "DataAnalysis": "207",
+    "ArtificialIntelligence": "302",
+    "CyberSecurity": "B101",
+    "Network": "303",
+    "Startup": "501",
+    "TestStrategy": "105",
+}
+for _ in range(N):
+    seminar = input()
+    print(seminar_room[seminar])
+
+
+# 28444
+H, I, A, R, C = map(int, input().split())
+print(H * I - A * R * C)
+
+# 28235 개선하기
+shout = input()
+
+cheer = {
+    "SONGDO": "HIGHSCHOOL",
+    "CODE": "MASTER",
+    "2023": "0611",
+    "ALGORITHM": "CONTEST",
+}
+# 백준 저지 프로그램에선 오류는 없었지만,
+# 사실 입력 에러 방지를 위해선 아래 코드로는 부족함
+# print(cheer[shout])
+# 개선시킨 코드
+result = cheer.get(shout.upper(), "Invalid cheer word!")
+print(result)
+# 28235
+shout = str(input())
+
+cheer = {
+    "SONGDO": "HIGHSCHOOL",
+    "CODE": "MASTER",
+    "2023": "0611",
+    "ALGORITHM": "CONTEST",
+}
+print(cheer[shout])
 # 17388 개선하기 딕셔너리 사용하기
 S, K, H = map(int, input().split())
 
@@ -20,9 +75,7 @@ if S + K + H >= 100:
     print("OK")
 else:
     scores = {"Soongsil": S, "Korea": K, "Hanyang": H}
-    print(min(scores, key=scores.get))
-
-"""
+    print(min(scores, key=lambda x: scores.get(x, float("inf"))))
 
 # 17388
 S, K, H = map(int, input().split())
