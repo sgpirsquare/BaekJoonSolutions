@@ -18,10 +18,24 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 25238
-a, b = map(int, input().split())
 
 """
+# 32025
+H = int(input())
+W = int(input())
+
+print(int(100 * min(H, W) * (0.5)))
+# 21964
+N = int(input())
+S = input()
+print(S[-5:])
+# 처음엔 print(S[-5:-1])이렇게 생각했는데
+# 이러면 끝값이 빠진다. 그래서 비워야한다 의도대로 하려면
+# 슬라이싱 [start, end]
+
+# 25238
+a, b = map(int, input().split())
+print(0 if a - a * (b / 100) >= 100 else 1)
 # 30087
 N = int(input())
 
