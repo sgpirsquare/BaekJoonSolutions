@@ -18,6 +18,81 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 2484 개선하기
+
+N = int(input())
+dice_sum = []
+
+for _ in range(N):
+    dices = list(map(int, input().split()))
+    # 이 아래부분이 이 코드의 킥이다. 계수정렬과 비슷한 아이디어를 썼다.
+    frequency = [0] * 7
+
+    for dice in dices:
+        frequency[dice] += 1
+
+    max_count = max(frequency)
+    if max_count == 4:
+        value = frequency.index(4)
+        dice_sum.append(50000 + value * 5000)
+    elif max_count == 3:
+        value = frequency.index(3)
+        dice_sum.append(10000 + value * 1000)
+    elif max_count == 2:
+        pairs = [i for i in range(1, 7) if frequency[i] == 2]
+        if len(pairs) == 2:
+            dice_sum.append(2000 + sum(pairs) * 500)
+        else:
+            value = pairs[0]
+            dice_sum.append(1000 + value * 100)
+    else:
+        for value in range(6, 0, -1):
+            if frequency[value] > 0:
+                dice_sum.append(value * 100)
+                break
+
+print(max(dice_sum))
+
+
+"""
+# 2484
+N = int(input())
+
+dice_sum = []
+
+for _ in range(N):
+    dice1, dice2, dice3, dice4 = map(int, input().split())
+    dices_list = sorted([dice1, dice2, dice3, dice4])
+    dices_set = set(dices_list)
+
+    if len(dices_set) == 1:
+        dice_sum.append(50000 + dice1 * 5000)
+
+    elif len(dices_set) == 4:
+        dice_sum.append(max(dices_set) * 100)
+
+    elif len(dices_set) == 2 and dices_list[1] != dices_list[2]:
+        dice_sum.append((dices_list[0] + dices_list[3]) * 500 + 2000)
+
+    elif len(dices_set) == 2 and dices_list[0] != dices_list[1]:
+        dice_sum.append(dices_list[3] * 1000 + 10000)
+
+    elif len(dices_set) == 2 and dices_list[2] != dices_list[3]:
+        dice_sum.append(dices_list[0] * 1000 + 10000)
+
+    elif len(dices_set) == 3 and dices_list[0] == dices_list[1]:
+        dice_sum.append(dices_list[0] * 100 + 1000)
+
+    elif len(dices_set) == 3 and dices_list[1] == dices_list[2]:
+        dice_sum.append(dices_list[1] * 100 + 1000)
+
+    elif len(dices_set) == 3 and dices_list[2] == dices_list[3]:
+        dice_sum.append(dices_list[2] * 100 + 1000)
+
+
+print(max(dice_sum))
+
+
 # 27890
 x_0, N = map(int, input().split())
 for _ in range(N):
@@ -29,7 +104,6 @@ for _ in range(N):
 print(x_0)
 
 
-"""
 # 32025
 H = int(input())
 W = int(input())
@@ -2309,6 +2383,7 @@ while True:
     if a==0 and b==0:
         break
     print("Yes" if a>b else "No")
+
 # 4101 첫 시도 이 문제가 직각삼각형문제보다 먼저 풀었어야 한 거였네
 while True:
     a,b = map(int, input().split())
