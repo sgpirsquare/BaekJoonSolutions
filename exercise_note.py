@@ -18,14 +18,23 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 2484 개선하기
+# 23235 solved.ac 랜덤 마라톤 코스 27
+
+# Case 1: Sorting... done!
+
+"""
+# 15962 solved.ac 랜덤 마라톤 코스 27
+print("파이팅!!")
+
+# 2484 개선하기 챗지피티 첨삭 코드리딩 다시 읽기
 
 N = int(input())
 dice_sum = []
 
 for _ in range(N):
     dices = list(map(int, input().split()))
-    # 이 아래부분이 이 코드의 킥이다. 계수정렬과 비슷한 아이디어를 썼다.
+    # 이 아래부분이 이 코드의 킥이다. 계수 정렬의 일부 아이디어를 활용한
+    # 정확히는 빈도 카운팅
     frequency = [0] * 7
 
     for dice in dices:
@@ -54,7 +63,6 @@ for _ in range(N):
 print(max(dice_sum))
 
 
-"""
 # 2484
 N = int(input())
 
