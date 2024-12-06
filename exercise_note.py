@@ -18,11 +18,34 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 23235 solved.ac 랜덤 마라톤 코스 27
-
-# Case 1: Sorting... done!
 
 """
+# 25591 개선하기 solved.ac 랜덤 마라톤 코스 27
+
+N1, N2 = map(int, input().split())
+a, b = 100 - N1, 100 - N2
+c, d = 100 - a - b, a * b
+# q = d // 100
+# r = d % 100
+# divmod 함수 Return the tuple (x//y, x%y). Invariant: div*y + mod == x.
+q, r = divmod(d, 100)
+print(a, b, c, d, q, r)
+print(c + q, r)
+
+# 25591 solved.ac 랜덤 마라톤 코스 27
+
+N1, N2 = map(int, input().split())
+a = 100 - N1
+b = 100 - N2
+c = 100 - a - b
+d = a * b
+q = d // 100
+r = d % 100
+print(a, b, c, d, q, r)
+print(c + q, r)
+
+
+
 # 15962 solved.ac 랜덤 마라톤 코스 27
 print("파이팅!!")
 
