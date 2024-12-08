@@ -18,8 +18,79 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-
 """
+# 2920 개선하기
+scales = list(map(int, input().split()))
+if scales == sorted(scales):
+    print("ascending")
+elif scales == sorted(scales, reverse=True):
+    print("descending")
+else:
+    print("mixed")
+
+# 2920
+scales = list(map(int, input().split()))
+
+ascending = [i for i in range(1, 9)]
+descending = [i for i in range(8, 0, -1)]
+
+if scales == ascending:
+    print("ascending")
+elif scales == descending:
+    print("descending")
+else:
+    print("mixed")
+
+# 5988 개선하기 간소화 컴프레헨션 사용
+
+N = int(input())
+for _ in range(N):
+    integer = int(input())
+    print("even" if integer % 2 == 0 else "odd")
+
+
+# 5988 개선하기 함수 사용하기 print일땐 return 불필요
+def even_odd(a):
+    if int(a % 2 == 0):
+        print("even")
+    else:
+        print("odd")
+
+
+N = int(input())
+for _ in range(N):
+    integer = int(input())
+    even_odd(integer)
+
+# 5988
+def even_odd(a):
+    if int(a % 2 == 0):
+        return print("even")
+    else:
+        return print("odd")
+
+
+N = int(input())
+for _ in range(N):
+    integer = int(input())
+    even_odd(integer)
+# 26560 개선하기
+N = int(input())
+
+for _ in range(N):
+    sentence = input()
+    result = sentence if sentence.endswith(".") else sentence + "."
+    print(result)
+
+# 26560
+N = int(input())
+
+for _ in range(N):
+    sentence = input()
+    if sentence[-1] != ".":
+        print(sentence + ".")
+    else:
+        print(sentence)
 # 25591 개선하기 solved.ac 랜덤 마라톤 코스 27
 
 N1, N2 = map(int, input().split())
