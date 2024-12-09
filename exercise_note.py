@@ -18,7 +18,106 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-"""
+i = 0
+while True:
+    n = input()
+    if n == "0":
+        break
+    else:
+        i += 1
+        print(f"Case {i}: Sorting... done!")
+
+"""  
+# 2004 아래 코드는 틀렸다고 나오네? 아이고.
+
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+# print(count_trailing_zeros(math.comb(n, m)))
+def count_trailing_zeros(n):
+    count = 0
+    while n >= 5:
+        # n = n//5
+        n //= 5
+        # count = count + n
+        count += n
+    return count
+
+
+n, m = map(int, input().split())
+print(count_trailing_zeros(n) - count_trailing_zeros(n - m) - count_trailing_zeros(m))
+print(factorial(n) // (factorial(n - m) * factorial(m)))
+
+# 1676 개선하기
+def count_trailing_zeros(n):
+    count=0
+    while n>=5:
+        # n = n//5
+        n//=5
+        # count = count + n
+        count+=n
+    return count
+
+N = int(input())
+
+print(count_trailing_zeros(N))
+
+# 1676
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+N = int(input())
+
+i = 1
+while factorial(N) % 10**i == 0:
+    i += 1
+print(i - 1)
+
+# 9093 보류
+N = int(input())
+texts = []
+for _ in range(N):
+    # texts.append(list(map(str, input().split(" "))))
+    texts.append(input())
+
+# for i in range(N):
+#     for j in range(len(texts[i])):
+#         texts[i][j] = reversed(texts[i][j])
+# for i in range(len(texts)):
+#     for j in range(len(texts[i])):
+#         texts[i][j] = list(reversed(texts[i][j]))
+for i in range(N):
+    print(texts[i])
+# 26489 ctrl+D로 EOF를 구현해야 함. WSL 리눅스이므로
+import sys
+
+answer = 0
+for word in sys.stdin:
+    answer += 1
+
+print(answer)
+
+# 26489 구글링으로 컨닝함 ㅠㅠ
+answer_number=0
+
+while True:
+    try:
+        sentence=input()
+        answer_number+=1
+    except EOFError:
+        break
+        
+print(answer_number)
+
 # 2920 개선하기
 scales = list(map(int, input().split()))
 if scales == sorted(scales):
