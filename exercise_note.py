@@ -18,6 +18,55 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+
+
+"""  
+# 10250 개선하기 직접 계산하는 방법=> 1-based to 0-based indexing
+frequency = int(input())
+for _ in range(frequency):
+    H, W, N = map(int, input().split())
+    floor = (N - 1) % H + 1
+    room_number = (N - 1) // H + 1
+    print(floor * 100 + room_number)
+
+# 10250 개선하기 직접 계산하는 방법=> 이 방법은 N%H==0일 때 틀린 값이 나온다.
+frequency = int(input())
+for _ in range(frequency):
+    H, W, N = map(int, input().split())
+    floor = N % H
+    room_number = N // H + 1
+    print(floor * 100 + room_number)
+
+
+# 10250
+frequency = int(input())
+for _ in range(frequency):
+    room_number = []
+    h, w, n = map(int, input().split())
+    for j in range(1, w + 1):
+        for i in range(1, h + 1):
+            room_number.append(i * 100 + j)
+    print(room_number[n - 1])
+
+# 6 12 10
+
+# h 6
+# w 12
+# n 10
+# 101 201 301 401 501 601
+# 102 202 302 402(n=10)
+
+
+# 23235 개선하기
+i = 0
+while True:
+    n = input()
+    if n == "0":
+        break
+    i += 1
+    print(f"Case {i}: Sorting... done!")
+
+# 23235
 i = 0
 while True:
     n = input()
@@ -27,7 +76,6 @@ while True:
         i += 1
         print(f"Case {i}: Sorting... done!")
 
-"""  
 # 2004 아래 코드는 틀렸다고 나오네? 아이고.
 
 
@@ -1224,18 +1272,6 @@ print(*alphabets_number)
 # a b  c  d e  f  g  h  i j k  l  m n o  p  q  r  s  t  u  v  w  x  y  z
 # 1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 
-# 10250 보류 시도
-frequency = int(input())
-results = []
-for _ in range(n):
-    h, w, n= map(int, input().split())
-    results.append(a + b)
-print("\n".join(map(str, results)))
-
-n = int(input())
-for _ in range(n):
-    a, b = map(int, input().split())
-    print(a + b)
 # 8370 개선시키기
 n1, k1, n2, k2 = map(int, input().split())
 total_score = n1 * k1 + n2 * k2
