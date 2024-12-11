@@ -1,5 +1,5 @@
-from math import factorial
+from math import comb
 
 N, K = map(int, input().split())
 
-print(factorial(N) // (factorial(N - K) * factorial(K)))
+print(comb(N, K))
