@@ -18,9 +18,105 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+"""
+# 29731 개선하기
+pledge = {
+    "Never gonna give you up",
+    "Never gonna let you down",
+    "Never gonna run around and desert you",
+    "Never gonna make you cry",
+    "Never gonna say goodbye",
+    "Never gonna tell a lie and hurt you",
+    "Never gonna stop"}
+
+N = int(input())
+inputs=[input() for _ in range(N)]
+
+if all(text in pledge for text in inputs):
+    print("No")
+else:
+    print("Yes")
+
+# 29731
+pledge = [
+    "Never gonna give you up",
+    "Never gonna let you down",
+    "Never gonna run around and desert you",
+    "Never gonna make you cry",
+    "Never gonna say goodbye",
+    "Never gonna tell a lie and hurt you",
+    "Never gonna stop",
+]
+N = int(input())
+answer = 0
+for _ in range(N):
+    text = input()
+    if text in pledge:
+        answer += 1
+
+if answer == N:
+    print("No")
+else:
+    print("Yes")
+
+# 27434 개선하기 100000! 계산가능하도록하기 pypy3 RecursionError
+
+import sys
+
+sys.setrecursionlimit(10**6)
+
+# sys.set_int_max_str_digits(10**7)
+def factorial(N):
+    if N <= 1:
+        return 1
+    else:
+        return factorial(N - 1) * N
 
 
-"""  
+n = int(input())
+print(factorial(n))
+
+
+# 27434 개선하기 100000! 계산가능하도록하기
+
+from math import factorial
+
+N = int(input())
+print(factorial(N))
+
+# 27434
+def factorial(n):
+    fact = 1
+    for i in range(n, 1, -1):
+        fact *= i
+    return fact
+
+
+N = int(input())
+
+if N == 0:
+    print(1)
+else:
+    print(factorial(N))
+
+# 27889 딕셔너리[키 값]=밸류
+school_names = {
+    "NLCS": "North London Collegiate School",
+    "BHA": "Branksome Hall Asia",
+    "KIS": "Korea International School",
+    "SJA": "St. Johnsbury Academy",
+}
+
+acronym = input()
+print(school_names[acronym])
+
+# 25311
+N = int(input())
+print("A")
+# 14928
+N = int(input())
+print(N % 20000303)
+
 # 10250 개선하기 직접 계산하는 방법=> 1-based to 0-based indexing
 frequency = int(input())
 for _ in range(frequency):
