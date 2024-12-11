@@ -18,7 +18,27 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 2720
+N = int(input())
+for _ in range(N):
+    cent = int(input())
+    quarter = int(cent // 25)
+    dime = int((cent - 25 * quarter) // 10)
+    nickel = int((cent - 25 * quarter - 10 * dime) // 5)
+    penny = int((cent - 25 * quarter - 10 * dime - 5 * nickel) // 1)
+    print(quarter, dime, nickel, penny)
+
 """
+# 5554
+home_to_school = int(input())
+school_to_PC = int(input())
+PC_to_academy = int(input())
+academy_to_home = int(input())
+
+sum_times = home_to_school + school_to_PC + PC_to_academy + academy_to_home
+
+print(int(sum_times // 60))
+print(int(sum_times % 60))
 # 29731 개선하기
 pledge = {
     "Never gonna give you up",
