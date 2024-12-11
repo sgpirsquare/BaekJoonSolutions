@@ -18,6 +18,115 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 1009 개선하기
+N = int(input())
+for _ in range(N):
+    a, b = map(int, input().split())
+    a %= 10
+    if a == 0:
+        print(10)
+    else:
+        print(pow(a, b, 10))
+
+"""
+
+# 1009
+N = int(input())
+for _ in range(N):
+    a, b = map(int, input().split())
+    a = a % 10
+    if a == 0:
+        print(10)
+    if a == 1 or a == 5 or a == 6:
+        print(a)
+    if a == 2 or a == 3 or a == 7 or a == 8:
+        print((a ** ((b - 1) % 4 + 1)) % 10)
+    if a == 4 or a == 9:
+        print((a ** ((b - 1) % 2 + 1)) % 10)
+
+
+# 5
+# 1 6
+# 3 7
+# 6 2
+# 7 100
+# 9 635
+
+# 1
+# 7
+# 6
+# 1
+# 9
+
+# result = []
+# for a in range(1, 10):
+#     digit = []
+#     for b in range(1, 10):
+#         digit.append(a**b % 10)
+#     result.append(digit)
+
+# for i in range(9):
+#     print(result[i])
+
+# [1, 1, 1, 1, 1, 1, 1, 1, 1]
+# [2, 4, 8, 6, 2, 4, 8, 6, 2]
+# [3, 9, 7, 1, 3, 9, 7, 1, 3]
+# [4, 6, 4, 6, 4, 6, 4, 6, 4]
+# [5, 5, 5, 5, 5, 5, 5, 5, 5]
+# [6, 6, 6, 6, 6, 6, 6, 6, 6]
+# [7, 9, 3, 1, 7, 9, 3, 1, 7]
+# [8, 4, 2, 6, 8, 4, 2, 6, 8]
+# [9, 1, 9, 1, 9, 1, 9, 1, 9]
+
+# 1 5 6
+
+# 1 5 6
+
+# 2 3 7 8
+
+# 2 4 8 6
+# 3 9 7 1
+# 7 9 3 1
+# 8 4 2 6
+
+# 4 9
+# 4 6
+# 9 1
+
+# 2720 개선하기 2 list로 동전 종류와 값을 관리
+
+
+def calculate_coins(cent):
+    coins = [25, 10, 5, 1]
+    result = []
+    for coin in coins:
+        result.append(cent // coin)
+        # cent=cent%coin
+        cent %= coin
+    return result
+
+
+N = int(input())
+for _ in range(N):
+    cent = int(input())
+    print(*calculate_coins(cent))
+
+
+# 2720 개선하기 1 몫//과 나머지%의 차이 수학 수학
+def calculate_coins(cent):
+    quarter = cent // 25
+    dime = (cent % 25) // 10
+    nickel = (cent % 25 % 10) // 5
+    penny = cent % 25 % 10 % 5
+    return quarter, dime, nickel, penny
+
+
+N = int(input())
+for _ in range(N):
+    cent = int(input())
+    result = calculate_coins(cent)
+    print(*result)
+
 # 2720
 N = int(input())
 for _ in range(N):
@@ -28,7 +137,6 @@ for _ in range(N):
     penny = int((cent - 25 * quarter - 10 * dime - 5 * nickel) // 1)
     print(quarter, dime, nickel, penny)
 
-"""
 # 5554
 home_to_school = int(input())
 school_to_PC = int(input())
