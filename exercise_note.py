@@ -18,7 +18,63 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 1009 개선하기
+
+"""
+# 1181 보류
+
+# words = []
+# N = int(input())
+
+# for _ in range(N):
+#     word = input()
+#     words.append(word)
+# print(set(sorted(words)))
+# # for word in words:
+# #     print(word)
+
+# input
+# 13
+# but
+# i
+# wont
+# hesitate
+# no
+# more
+# no
+# more
+# it
+# cannot
+# wait
+# im
+# yours
+
+# output
+# i
+# im
+# it
+# no
+# but
+# more
+# wait
+# wont
+# yours
+# cannot
+# hesitate
+
+# 11050 개선하기
+from math import comb
+
+N, K = map(int, input().split())
+
+print(comb(N, K))
+
+# 11050
+from math import factorial
+
+N, K = map(int, input().split())
+
+print(factorial(N) // (factorial(N - K) * factorial(K)))
+# 1009 개선하기 pow(base,exp,mod=none)
 N = int(input())
 for _ in range(N):
     a, b = map(int, input().split())
@@ -28,7 +84,6 @@ for _ in range(N):
     else:
         print(pow(a, b, 10))
 
-"""
 
 # 1009
 N = int(input())
