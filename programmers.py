@@ -11,8 +11,10 @@
 ########################################################
 
 
+"""  
 # 조건 문자열
 def solution(ineq, eq, n, m):
+    answer = None
     if ineq == ">" and eq == "=":
         answer = int(n >= m)
     elif ineq == "<" and eq == "=":
@@ -22,12 +24,12 @@ def solution(ineq, eq, n, m):
         answer = int(n > m)
     elif ineq == "<" and eq == "!":
         answer = int(n < m)
+
     return answer
 
 
 print(solution(">", "!", 7, 5))
 
-"""  
 # A 강조하기
 
 

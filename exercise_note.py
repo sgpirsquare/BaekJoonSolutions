@@ -18,9 +18,60 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 8320
+# 10814 나이순 정렬 정렬
+N = int(input())
+members_info = {}
+for _ in range(N):
+    age, name = input().split()
+    members_info[name] = age
+
+print(members_info)
+
 
 """
+# 30802 개선하기 by claude
+
+N = int(input())
+S, M, L, XL, XXL, XXXL = map(int, input().split())
+T, P = map(int, input().split())
+
+T_shirts = [S, M, L, XL, XXL, XXXL]
+
+result = 0
+
+
+def calculate_boxes(shirts, capacity):
+    return sum((shirt - 1) // capacity + 1 for shirt in shirts)
+
+
+total_boxes = calculate_boxes(T_shirts, T)
+boxes_per_palette = N // P
+remaining_boxes = N % P
+
+print(total_boxes)
+print(boxes_per_palette, remaining_boxes)
+
+
+# 30802
+
+N = int(input())
+S, M, L, XL, XXL, XXXL = map(int, input().split())
+T_shirts = [S, M, L, XL, XXL, XXXL]
+T, P = map(int, input().split())
+result = 0
+for shirts in T_shirts:
+
+    result += (shirts - 1) // T + 1
+
+
+print(result)
+
+print(N // P, N % P)
+# 32458
+
+x = float(input())
+
+print(int(x))
 # 5523 개선하기 python3으로도 100점임. 입력메모리속도차이가 이렇게 난단말인가 stdin이
 from sys import stdin
 
