@@ -18,11 +18,8 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-def rectangle(N):
+# 8320
 
-    N//1 + N//2 + N//3
-
-    return rectangle(N-1)+
 """
 # 5523 개선하기 python3으로도 100점임. 입력메모리속도차이가 이렇게 난단말인가 stdin이
 from sys import stdin

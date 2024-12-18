@@ -9,6 +9,25 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+
+
+# 조건 문자열
+def solution(ineq, eq, n, m):
+    if ineq == ">" and eq == "=":
+        answer = int(n >= m)
+    elif ineq == "<" and eq == "=":
+        answer = int(n <= m)
+
+    elif ineq == ">" and eq == "!":
+        answer = int(n > m)
+    elif ineq == "<" and eq == "!":
+        answer = int(n < m)
+    return answer
+
+
+print(solution(">", "!", 7, 5))
+
+"""  
 # A 강조하기
 
 
@@ -27,7 +46,6 @@ my_String = "abstract algebra"
 
 print(solution(my_String))
 
-"""  
 # 공백으로 구분하기 1
 
 
