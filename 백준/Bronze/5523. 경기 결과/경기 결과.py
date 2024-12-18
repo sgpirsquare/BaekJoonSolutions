@@ -1,7 +1,8 @@
-N = int(input())
+from sys import stdin
+
 score_A, score_B = 0, 0
-for _ in range(N):
-    A, B = map(int, input().split())
+for _ in range(int(stdin.readline())):
+    A, B = map(int, stdin.readline().split())
     if A > B:
         score_A += 1
     elif A < B:
