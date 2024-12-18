@@ -18,6 +18,132 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+
+""" 
+# 5576 개선하기 list comprehension
+univ_w = [int(input()) for _ in range(10)]
+univ_k = [int(input()) for _ in range(10)]
+print(sum(sorted(univ_w)[-3:]), sum(sorted(univ_k)[-3:]))
+
+# 5576
+univ_w = []
+univ_k = []
+for _ in range(10):
+    univ_w.append(int(input()))
+for _ in range(10):
+    univ_k.append(int(input()))
+print(sum(sorted(univ_w)[-3:]), sum(sorted(univ_k)[-3:]))
+# 9076 더 개선하기 따라치기 삼항 연산자 연습 comprehension과는 다른 개념임
+N=int(input())
+for _ in range(N):
+    scores=sorted(map(int,input().split()))
+    print("KIN" if abs(scores[1]-scores[3])>=4 else sum(scores[1:4]))
+
+# 9076 더 개선하기
+N = int(input())
+for _ in range(N):
+    scores = sorted(map(int, input().split()))
+    print("KIN" if abs(scores[1] - scores[3]) >= 4 else sum(scores[1:4]))
+
+# 9076 개선하기
+N = int(input())
+for _ in range(N):
+    scores = sorted(map(int, input().split()))
+    middle_diff = abs(scores[1] - scores[3])
+    if middle_diff >= 4:
+        print("KIN")
+    else:
+        print(sum(scores[1:4]))
+
+# 9076
+N = int(input())
+for _ in range(N):
+    scores = list(map(int, input().split()))
+    scores.sort()
+    if scores[1] - scores[3] >= 4 or scores[3] - scores[1] >= 4:
+        print("KIN")
+    else:
+        print(sum(scores) - min(scores) - max(scores))
+# 28417 개선하기
+N = int(input())
+max_sum = 0
+for _ in range(N):
+    scores = list(map(int, input().split()))
+    score_of_trick = sorted(scores[2:], reverse=True)
+    current_sum = max(scores[:2]) + score_of_trick[0] + score_of_trick[1]
+    max_sum = max(max_sum, current_sum)
+print(max_sum)
+
+# 28417
+N = int(input())
+sum = []
+for _ in range(N):
+    scores = list(map(int, input().split()))
+    # score_of_run = sorted(scores[:2])
+    score_of_trick = sorted(scores[2:])
+    sum.append(max(scores[:2]) + score_of_trick[-1] + score_of_trick[-2])
+sum.sort()
+print(sum[-1])
+
+# 2752 개선하기
+n1, n2, n3 = map(int, input().split())
+sorted_numbers = sorted([n1, n2, n3])
+print(*sorted_numbers)
+
+# 2752
+n1, n2, n3 = map(int, input().split())
+sorted_numbers = sorted([n1, n2, n3])
+print(sorted_numbers[0], sorted_numbers[1], sorted_numbers[2])
+
+# 10817
+A, B, C = map(int, input().split())
+sorted_numbers = sorted([A, B, C])
+print(numbers[1])
+
+
+# 1181 보류 재도전
+
+words = []
+N = int(input())
+
+for _ in range(N):
+    word = input()
+    words.append(word)
+print(words)
+# for word in words:
+#     print(word)
+
+# input
+# 13
+# but
+# i
+# wont
+# hesitate
+# no
+# more
+# no
+# more
+# it
+# cannot
+# wait
+# im
+# yours
+
+# output
+# i
+# im
+# it
+# no
+# but
+# more
+# wait
+# wont
+# yours
+# cannot
+# hesitate
+
+
+
 # 10814 나이순 정렬 정렬
 N = int(input())
 members_info = {}
@@ -28,7 +154,6 @@ for _ in range(N):
 print(members_info)
 
 
-"""
 # 30802 개선하기 by claude
 
 N = int(input())
@@ -135,46 +260,6 @@ if N == 0:
     print("YONSEI")
 elif N == 1:
     print("Leading the Way to the Future")
-# 1181 보류
-
-# words = []
-# N = int(input())
-
-# for _ in range(N):
-#     word = input()
-#     words.append(word)
-# print(set(sorted(words)))
-# # for word in words:
-# #     print(word)
-
-# input
-# 13
-# but
-# i
-# wont
-# hesitate
-# no
-# more
-# no
-# more
-# it
-# cannot
-# wait
-# im
-# yours
-
-# output
-# i
-# im
-# it
-# no
-# but
-# more
-# wait
-# wont
-# yours
-# cannot
-# hesitate
 
 # 11050 개선하기
 from math import comb
