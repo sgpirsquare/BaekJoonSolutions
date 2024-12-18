@@ -18,8 +18,75 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+def rectangle(N):
 
+    N//1 + N//2 + N//3
+
+    return rectangle(N-1)+
 """
+# 5523 개선하기 python3으로도 100점임. 입력메모리속도차이가 이렇게 난단말인가 stdin이
+from sys import stdin
+
+score_A, score_B = 0, 0
+for _ in range(int(stdin.readline())):
+    A, B = map(int, stdin.readline().split())
+    if A > B:
+        score_A += 1
+    elif A < B:
+        score_B += 1
+    else:
+        pass
+print(score_A, score_B)
+
+# 5523 PyPy3로 100점
+N = int(input())
+score_A, score_B = 0, 0
+for _ in range(N):
+    A, B = map(int, input().split())
+    if A > B:
+        score_A += 1
+    elif A < B:
+        score_B += 1
+    else:
+        pass
+print(score_A, score_B)
+
+
+# 18398 답을 보긴 했는데 뭔가 불친절한 문제였음. 
+# for each test case 번역기로 문제번역한게 오히려 문제를 제대로 해석하지 못 하게 만든 원인이었구만만
+T = int(input())
+for _ in range(T):
+    N = int(input())
+    for _ in range(N):
+        A, B = map(int, input().split())
+        print(A + B, A * B)
+
+# 15610
+
+print(pow(int(input()), 0.5) * 4)
+# 32326
+R = int(input())
+G = int(input())
+B = int(input())
+
+print(3 * R + 4 * G + 5 * B)
+
+# 29751 자리수 표현 개선하기
+W, H = map(int, input().split())
+result = (W * H) / 2
+print(f"{result:.1f}")
+
+
+# 29751 자리수 표현
+W, H = map(int, input().split())
+print(format(float(W * H / 2), ".1f"))
+
+# 15680
+N = int(input())
+if N == 0:
+    print("YONSEI")
+elif N == 1:
+    print("Leading the Way to the Future")
 # 1181 보류
 
 # words = []
