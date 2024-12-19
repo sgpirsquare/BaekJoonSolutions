@@ -12,6 +12,49 @@
 
 
 """  
+# 등차수열의 특정한 항만 더하기
+def solution(a, d, included):
+    seq = []
+    anwser = 0
+    for _ in range(len(included)):
+        a += d*i
+        seq.append(a)
+    for i in range(len(included)):
+        if included[i] == "true":
+            anwser += seq[i]
+    return answer
+
+
+# solution(3, 4, [true, false, false, true, true])
+
+a = 3
+d = 4
+included = [True, False, False, True, True]
+def solution(a,d,included):
+    length = len(included)
+    answer=0
+    for i in range(length):
+        if included[i] == True:
+            answer+= a + d * i
+    return answer
+
+# 주사위 게임 2
+
+
+def solution(a, b, c):
+    sum = a + b + c
+    set_point = {a, b, c}
+    if len(set_point) == 3:
+        answer = sum
+    elif len(set_point) == 2:
+        answer = sum * (pow(a, 2) + pow(b, 2) + pow(c, 2))
+    elif len(set_point) == 1:
+        answer = 3 * a * 3 * pow(a, 2) * 3 * pow(a, 3)
+
+    return answer
+
+
+
 # 조건 문자열
 def solution(ineq, eq, n, m):
     answer = None
