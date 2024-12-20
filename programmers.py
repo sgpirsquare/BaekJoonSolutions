@@ -10,8 +10,19 @@
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
 
-
 """  
+# 수열과 구간 쿼리 3
+def solution(arr, queries):
+    for querie in queries:
+        temp=arr[querie[0]]
+        arr[querie[0]]=arr[querie[1]]
+        arr[querie[1]]=temp
+    return arr
+# temp = arr[queries[0][0]]
+# arr[queries[0][0]] = arr[queries[0][1]]
+# arr[queries[0][1]] = temp
+
+# print(arr)
 # 등차수열의 특정한 항만 더하기
 def solution(a, d, included):
     seq = []
