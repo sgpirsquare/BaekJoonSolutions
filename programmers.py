@@ -9,6 +9,9 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+# 수열과 구간 쿼리 2
+arr = [0, 1, 2, 4, 3]
+queries = [[0, 4, 2], [0, 3, 2], [0, 2, 2]]
 
 """  
 # 수열과 구간 쿼리 3

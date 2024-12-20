@@ -18,31 +18,8 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-# 8320 더 개선하기
-N = int(input())
-result = 0
-
-for a in range(1, N + 1):
-    result += N // a - a + 1
-
-print(result)
 
 """ 
-#8320 개선하기
-N = int(input())
-result = sum(1 for divisor in range(1, N + 1) for i in range(divisor, N // divisor + 1))
-print(result)
-
-# 8320
-N = int(input())
-result = 0
-for divisor in range(1, N + 1):
-    for i in range(1, N // divisor + 1):
-        if divisor <= i:
-            result += 1
-print(result)
-
-
 # 5576 개선하기 list comprehension
 univ_w = [int(input()) for _ in range(10)]
 univ_k = [int(input()) for _ in range(10)]
