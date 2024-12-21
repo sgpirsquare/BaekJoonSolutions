@@ -9,11 +9,55 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+"""   
+# 중앙값 구하기
+def solution(array):
+
+    answer = sorted(array)[len(array) // 2]
+    return answer
+
+
+array = [9, -1, 0]
+print(solution(array))
+    
+# 분수의 덧셈
+
+# gcm은 math에 있지만 lcm은 python 3.9버전부터 있음.
+# 프로그래머스의 python3은 버전이 3.8임
+# gcd를 직접 만들어 쓰기도 해야 할 줄 알아야 함.
+# 아래는 백준 문제 풀면서 만든 유클리드호제법으로 작성한 gcd
+def gcd_custom(a, b):
+    while b:
+        a, b = b, a % b
+
+    return a
+
+#질문 게시판에 있던 DIY gcd
+def GCD(a, b):
+    while(b>0):
+        a, b = b, a%b
+    return a
+
+
+print(gcd_custom(6, 4))
+from math import gcd
+
+
+def solution(numer1, denom1, numer2, denom2):
+    # 분모의 최소공배수==통분
+    lcm_denom = denom1 * denom2 // gcd(denom1, denom2)
+    # 분자 덧셈 계산
+    numer = numer1 * (lcm_denom // denom1) + numer2 * (lcm_denom // denom2)
+    # 기약분수를 만들기 위해 분모와 분자에 나눠줄 분모 분자 최대공약수 구하기
+    gcd_numer_denom = gcd(numer, lcm_denom)
+    # 분모, 분자 최대공약수 실제로 나눠서 결과내기
+    answer = [numer // gcd_numer_denom, lcm_denom // gcd_numer_denom]
+    return answer
+
 # 수열과 구간 쿼리 2
 arr = [0, 1, 2, 4, 3]
 queries = [[0, 4, 2], [0, 3, 2], [0, 2, 2]]
 
-"""  
 # 수열과 구간 쿼리 3
 def solution(arr, queries):
     for querie in queries:
