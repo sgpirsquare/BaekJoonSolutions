@@ -9,7 +9,137 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+
 """   
+# 문자열 정렬하기 (2) 이렇게 푸는걸 추천하네 다들 ord 함수수
+
+def solution(my_string):
+    answer = []
+    for i in my_string:
+        if ord(i) >= ord('A') and ord(i) <= ord('Z'):
+            answer.append(chr(ord(i)+32))
+        else:
+            answer.append(i)
+    return ''.join(sorted(answer))
+
+# 문자열 정렬하기 (2)
+def solution(my_string):
+    answer = my_string.lower()
+    return answer
+
+
+my_string = "Bcad"
+print(solution(my_string))
+
+# 숫자 찾기
+
+
+def solution(num, k):
+    answer = 0
+    if "k" in list(str(num)):
+        answer = num.index("k")
+    return answer
+
+
+num = 29183
+k = 1
+# print(list(str(num)))
+print(solution(num, k))
+# 369게임
+
+
+def solution(order):
+    answer = 0
+    order = str(order)
+    if "3" in order or "6" in order or "9" in order:
+        answer += 1
+    return answer
+
+
+order = 29423
+print(solution(order))
+
+# 배열 회전시키기
+def solution(numbers, direction):
+    answer = []
+    if direction == "right":
+        answer.append(numbers[len(numbers) - 1])
+        answer += numbers[:-1]
+    if direction == "left":
+
+        answer = numbers[1:]
+        answer.append(numbers[0])
+
+    return answer
+
+
+numbers = [1, 2, 3]
+direction = "left"
+print(solution(numbers, direction))
+
+# 인덱스 바꾸기
+
+
+def solution(my_string, num1, num2):
+    answer = ""
+    temp = ""
+    num1, num2 = int(num1), int(num2)
+    temp = my_string[num1]
+    my_string[num1] = my_string[num2]
+    my_string[num2] = temp
+    answer = my_string
+    return answer
+
+
+my_string = "hello"
+
+print(my_string[1])
+num1, num2 = 1, 2
+print(solution(my_string, num1, num2))
+
+# 문자열 뒤집기
+my_string = "jaron"
+
+reversed(my_string)
+print(my_string)
+
+# 숨어있는 숫자의 덧셈(1) 더 개선하기 isdigit()
+
+my_string = "aAb1B2cC34oOp"
+answer = sum(int(i) for i in my_string if i.isdigit())
+print(answer)
+
+# 숨어있는 숫자의 덧셈(1) 개선하기
+
+my_string = "aAb1B2cC34oOp"
+answer = 0
+for num in my_string:
+    try:
+        answer += int(num)
+    except:
+        pass
+print(answer)
+
+# 숨어있는 숫자의 덧셈(1)
+
+my_string = "aAb1B2cC34oOp"
+answer = 0
+for num in my_string:
+    if (
+        num == "0"
+        or num == "1"
+        or num == "2"
+        or num == "3"
+        or num == "4"
+        or num == "5"
+        or num == "6"
+        or num == "7"
+        or num == "8"
+        or num == "9"
+    ):
+        answer += int(num)
+print(answer)
+
 # 중앙값 구하기
 def solution(array):
 
