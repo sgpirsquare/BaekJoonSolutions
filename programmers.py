@@ -9,9 +9,221 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+# 가까운 수
+
+
+def solution(array, n):
+    answer = 0
+    for num in array:
+        if abs(num - n) < answer:
+            answer = abs(num - n)
+    return answer
+
+
+array = [3, 10, 28]
+n = 20
+print(solution(array, n))
 
 """   
-# 문자열 정렬하기 (2) 이렇게 푸는걸 추천하네 다들 ord 함수수
+# 진료 순서 정하기
+# def solution(emergency):
+#     answer = []
+#     return answer
+
+emergency = [3, 76, 74]
+
+print(list(sorted(emergency, reverse=True)))
+
+# print(solution(emergency))
+
+# 팩토리얼
+def factorial(n):
+    if n <= 1:
+        return 1
+    else:
+        return factorial(n - 1) * n
+
+
+def solution(m):
+    n = 0
+    while True:
+        if factorial(n) < m:
+            n += 1
+    return n
+
+
+print(factorial(10))
+
+# k의 개수
+def solution(i, j, k):
+    answer = []
+    for l in range(i, j + 1):
+        if str(k) in str(l):
+            answer.append(list(str(l)))
+            answer += 1
+    return answer
+
+
+i, j, k = 1, 13, 1
+print(solution(i, j, k))
+
+# 모스부호(1)
+def solution(letter):
+    answer = ""
+    morse = {
+        ".-": "a",
+        "-...": "b",
+        "-.-.": "c",
+        "-..": "d",
+        ".": "e",
+        "..-.": "f",
+        "--.": "g",
+        "....": "h",
+        "..": "i",
+        ".---": "j",
+        "-.-": "k",
+        ".-..": "l",
+        "--": "m",
+        "-.": "n",
+        "---": "o",
+        ".--.": "p",
+        "--.-": "q",
+        ".-.": "r",
+        "...": "s",
+        "-": "t",
+        "..-": "u",
+        "...-": "v",
+        ".--": "w",
+        "-..-": "x",
+        "-.--": "y",
+        "--..": "z",
+    }
+    for mors in list(letter):
+        answer += morse[mors]
+    return answer
+
+
+morse = {
+    ".-": "a",
+    "-...": "b",
+    "-.-.": "c",
+    "-..": "d",
+    ".": "e",
+    "..-.": "f",
+    "--.": "g",
+    "....": "h",
+    "..": "i",
+    ".---": "j",
+    "-.-": "k",
+    ".-..": "l",
+    "--": "m",
+    "-.": "n",
+    "---": "o",
+    ".--.": "p",
+    "--.-": "q",
+    ".-.": "r",
+    "...": "s",
+    "-": "t",
+    "..-": "u",
+    "...-": "v",
+    ".--": "w",
+    "-..-": "x",
+    "-.--": "y",
+    "--..": "z",
+}
+
+
+letter = ".... . .-.. .-.. ---"
+print(list(letter.split()))
+print(morse["...."])
+# 배열에서 문자열 대소문자 변환하기
+
+
+def solution(strArr):
+    answer = []
+    for i in range(len(strArr)):
+        if i % 2 == 0:
+            answer.append(strArr[i].lower())
+        else:
+            answer.append(strArr[i].upper())
+    return answer
+
+
+strArr = ["AAA", "BBB", "CCC", "DDD"]
+
+print(solution(strArr))
+
+# 소수 판정 함수 이건 결국 매커니즘을 외워야겠네
+
+def isprime(n):
+    for i in range(2, int(pow(n, 0.5) + 1)):  # 2부터 제곱근까지 검사
+        if n % i == 0:  # n이 i로 나누어떨어지면 소수가 아님
+            return False
+    return True  # 나누어떨어지는 수가 없으면 소수
+
+    
+# 합성수 찾기
+
+# 전체에서 소수 개수를 빼면 되지 않나
+
+
+def isprime(n):
+    for i in range(2, int(pow(n, 0.5) + 1)):
+        if n % i == 0:
+            return False
+
+    return True
+
+
+answer = 0
+n = 15
+for i in range(1, n + 1):
+    if isprime(i):
+        answer += 1
+print(n - answer)
+
+# 피자 나눠 먹기 (2) 최소공배수 문제
+def GCD(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def GCD(a,b):
+    while b:
+        a,b=b, a%b
+    return a
+
+def LCM(a,b):
+    return a*b// GCD(a,b)
+
+def solution(n):
+    answer = LCM(n,6)//6
+    return answer
+
+a = 10
+b = 6
+LCM_a_b = a * b // GCD(a, b)
+print(GCD(10, 6))
+print(LCM_a_b)
+
+# 외계행성의 나이 개선하기 "".join(리스트) 사용법 익히기 인가
+answer = ""
+age = 23
+
+print("".join([chr(int(i) + 97) for i in str(age)]))
+
+# for age in list(str(age)):
+#     answer += chr(97 + int(age))
+# print(answer)
+
+# 외계행성의 나이
+answer = ""
+age = 23
+for age in list(str(age)):
+    answer += chr(97 + int(age))
+
+print(answer)
+# 문자열 정렬하기 (2) 이렇게 푸는걸 추천하네 다들 ord 함수
 
 def solution(my_string):
     answer = []
@@ -20,6 +232,7 @@ def solution(my_string):
             answer.append(chr(ord(i)+32))
         else:
             answer.append(i)
+            #list join iterable data
     return ''.join(sorted(answer))
 
 # 문자열 정렬하기 (2)

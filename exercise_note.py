@@ -18,8 +18,22 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
-
+# 30214
+s1, s2 = map(int, input().split())
+if s2 // s1 >= 2:
+    print("H")
+else:
+    print("E")
 """ 
+# 29691
+
+club = {"M": "MatKor", "W": "WiCys", "C": "CyKor", "A": "AlKor", "$": "$clear"}
+print(club[input()])
+# 18301
+n1, n2, n12 = map(int, input().split())
+
+N = ((n1 + 1) * (n2 + 1) // (n12 + 1) - 1 - 1) + 1
+print(N)
 # 5576 개선하기 list comprehension
 univ_w = [int(input()) for _ in range(10)]
 univ_k = [int(input()) for _ in range(10)]
