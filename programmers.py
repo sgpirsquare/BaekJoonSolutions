@@ -9,6 +9,36 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+# 주사위 게임 1
+def solution(a, b):
+    answer = 0
+    if a * b % 2 == 1:
+        answer = pow(a, 2) + pow(b, 2)
+    elif (a % 2 == 0 and b % 2 == 1) or (b % 2 == 0 and a % 2 == 1):
+        answer = 2 * sum((a, b))
+    else:
+        answer = abs(a - b)
+    return answer
+
+
+a, b = 6, 1
+print(solution(a, b))
+"""   
+# 부분 문자열 이어 붙여 문자열 만들기
+
+
+def solution(my_strings, parts):
+    answer = ""
+    for i in range(len(my_strings)):
+        print(my_strings[i][parts[i][0] : parts[i][1]])
+        answer += my_strings[i][parts[i][0] : parts[i][1]]
+    return answer
+
+
+my_strings = ["progressive", "hamburger", "hammer", "ahocorasick"]
+parts = [[0, 4], [1, 2], [3, 5], [7, 7]]
+
+print(solution(my_strings, parts))
 # 가까운 수
 
 
@@ -24,7 +54,6 @@ array = [3, 10, 28]
 n = 20
 print(solution(array, n))
 
-"""   
 # 진료 순서 정하기
 # def solution(emergency):
 #     answer = []
