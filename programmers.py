@@ -9,6 +9,45 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+
+
+# 문자열 내 p와 y의 개수 개선하기
+def solution(s):
+    return s.lower().count("p") == s.lower().count("y")
+
+
+s = "pPoooyY"
+
+print(solution(s))
+
+"""   
+# 문자열 내 p와 y의 개수
+def solution(s):
+    count_p = 0
+    count_y = 0
+    for i in range(len(s)):
+        if "p" == s[i]:
+            count_p.lower() += 1
+        if "y" == s[i]:
+            count_y.lower() += 1
+    if count_p == count_y:
+        return True
+    else:
+        return False
+
+
+s = "pPoooyY"
+
+print(solution(s))
+
+# 두 정수 사이의 합
+def solution(a, b):
+    # n(n+l)/2 등차수열의 합
+    return (a + b) * (abs(a - b) + 1) // 2
+
+
+print(solution(1, 10))
+
 # 특별한 이차원 배열 1
 def solution(n):
     answer = []
@@ -28,7 +67,6 @@ def solution(n):
 
 
 print(solution(5))
-"""    
 # 간단한 식 계산하기
 def solution(binomial):
     calculus = list(binomial.split())
