@@ -9,6 +9,61 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+# 특별한 이차원 배열 1
+def solution(n):
+    answer = []
+    for i in range(n):
+        answer.append([0 for i in range(n)])
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                answer[i][j] = 1
+    return answer
+
+
+# n = int(input())
+# answer = []
+# for i in range(n):
+#     answer.append([0 for i in range(n)])
+
+
+print(solution(5))
+"""    
+# 간단한 식 계산하기
+def solution(binomial):
+    calculus = list(binomial.split())
+    a = int(calculus[0])
+    b = int(calculus[2])
+    op = calculus[1]
+    if op == "+":
+        return a + b
+    elif op == "-":
+        return a - b
+    elif op == "*":
+        return a * b
+
+
+binomial = "43 + 12"
+print(list(binomial.split()))
+print(solution(binomial))
+
+# 최댓값 만들기 (2)
+
+
+def solution(numbers):
+    answer = 0
+    for i in numbers:
+        for j in numbers:
+            if i * j >= answer and i != j:
+                # if i != j:
+                answer = i * j
+                print(answer)
+    return answer
+
+
+numbers = [10, 20, 30, 5, 5, 20, 5]
+solution(numbers)
+
 # 주사위 게임 1
 def solution(a, b):
     answer = 0
@@ -23,7 +78,6 @@ def solution(a, b):
 
 a, b = 6, 1
 print(solution(a, b))
-"""   
 # 부분 문자열 이어 붙여 문자열 만들기
 
 

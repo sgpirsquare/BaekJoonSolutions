@@ -18,13 +18,47 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 10173
+from sys import stdin
+
+while True:
+    N = stdin.readline()
+    if "Nemo" in N:
+        print("Found")
+    elif "Nemo" not in N:
+        print("Missing")
+    elif N == "EOI":
+        break
+
+
+""" 
+#22864
+A, B, C, M =int(input())
+
+#23303
+problem=input()
+if 'd2' or 'D2' in problem:
+    print('D2')
+else:
+    print('unrated')
+# 26561
+N = int(input())
+for _ in range(N):
+    p, t = map(int, input().split())
+    print(p - t // 7 + t // 4)
+
+# 17010
+N = int(input())
+for _ in range(N):
+    L, x = map(str, input().split())
+    print(int(L) * x)
+
 # 30214
 s1, s2 = map(int, input().split())
-if s2 // s1 >= 2:
+if s2 / s1 >= 2:
     print("H")
 else:
     print("E")
-""" 
 # 29691
 
 club = {"M": "MatKor", "W": "WiCys", "C": "CyKor", "A": "AlKor", "$": "$clear"}
