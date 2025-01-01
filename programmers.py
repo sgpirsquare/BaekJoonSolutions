@@ -10,17 +10,357 @@
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
 
+# 빈 배열에 추가, 삭제하기 개선하기
+
+
+def solution(arr, flag):
+    answer = []
+    for i, f in enumerate(flag):
+        if f:
+            answer += [arr[i]] * (arr[i] * 2)
+
+        else:
+            for _ in range(arr[i]):
+                answer.pop()
+    return answer
+
+
+arra = [3, 2, 4, 1, 3]
+flags = [True, False, True, False, False]
+
+print(solution(arra, flags))
+"""   
+
+# 빈 배열에 추가, 삭제하기
+
+def solution(arr, flag):
+    answer = []
+    for i in range(len(arr)):
+        if flag[i]:
+            for _ in range(arr[i] * 2):
+                answer.append(arr[i])
+
+        else:
+            answer = answer[: -arr[i]]
+    return answer
+
+
+arra = [3, 2, 4, 1, 3]
+flags = [True, False, True, False, False]
+
+print(solution(arra, flags))
+# 배열의 길이를 2의 거듭제곱으로 만들기
+def solution(arr):
+    n = 1
+
+    while len(arr) > pow(2, n):
+        n += 1
+
+    if pow(2, n) == len(arr):
+        return arr
+    else:
+        arr += [0] * (pow(2, n) - len(arr))
+    return arr
+
+
+# def solution(arr):
+
+#     return (len(arr) - 1) // 2 + 1
+
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(solution(arr))
+
+# 없는 숫자 더하기 개선하기
+def solution(numbers):
+    return 45 - sum(numbers)
+
+
+numbers = [1, 2, 3, 4, 6, 7, 8, 0]
+print(solution(numbers))
+# 없는 숫자 더하기
+def solution(numbers):
+    return sum(set(range(1, 10)).difference(numbers))
+
+
+numbers = [1, 2, 3, 4, 6, 7, 8, 0]
+print(solution(numbers))
+
+# 음양 더하기 개선하기
+
+
+def solution(absolutes, signs):
+
+    return sum(n if sign else -n for n, sign in zip(absolutes, signs))
+
+
+absolutes = [4, 7, 12]
+signs = [True, False, True]
+print(solution(absolutes, signs))
+
+
+# 음양 더하기
+def solution(absolutes, signs):
+    answer = 0
+    for TorF in range(len(signs)):
+        if signs[TorF]:
+            answer += absolutes[TorF]
+        else:
+            answer -= absolutes[TorF]
+
+    return answer
+
+
+absolutes = [4, 7, 12]
+signs = [True, False, True]
+print(solution(absolutes, signs))
+# 콜라츠 추측
+def solution(num):
+    count = 0
+    # 개선하기
+
+    # while not (num == 1):
+    while num != 1:
+
+        if num % 2 == 0:
+            num = num // 2
+        elif num % 2 == 1:
+            num = 3 * num + 1
+        elif num == 1:
+            break
+        count += 1
+    if count >= 500:
+        return -1
+    return count
+
+
+print(solution(626331))
+
+# 글자 지우기
+
+
+def solution(my_string, indices):
+    indices_complement = set(range(len(my_string))).difference(set(indices))
+    indices_complement = list(indices_complement)
+    return "".join([my_string[i] for i in indices_complement])
+
+
+my_string = "apporoograpemmemprs"
+indices = [1, 16, 6, 15, 0, 10, 11, 3]
+# indices_complement = set(range(len(my_string))).difference(set(indices))
+# indices_complement = list(indices_complement)
+# print("".join([my_string[i] for i in indices_complement]))
+
+# print(indices)
+print(solution(my_string, indices))
+
+# 서울에서 김서방 찾기
+
+
+def solution(seoul):
+    if "Kim" in seoul:
+        idx = seoul.index("Kim")
+        return print(f"김서방은 {idx}에 있다")
+
+
+seoul = ["Jane", "Kim"]
+solution(seoul)
+
+# 수열과 구간 쿼리 1 개선하기
+def solution(arr, queries):
+    for start, end in queries:
+        arr = [a + 1 if start <= i <= end else a for i, a in enumerate(arr)]
+    return arr
+
+
+arr = [0, 1, 2, 3, 4]
+queries = [[0, 1], [1, 2], [2, 3]]
+print(solution(arr, queries))
+
+
+# 수열과 구간 쿼리 1
+def solution(arr, queries):
+    for i in range(len(queries)):
+        for j in range(queries[i][0], queries[i][1] + 1):
+            arr[j] += 1
+    return arr
+
+
+arr = [0, 1, 2, 3, 4]
+queries = [[0, 1], [1, 2], [2, 3]]
+print(solution(arr, queries))
+# result = [1, 3, 4, 4, 4]
+
+# for i in range(len(queries)):
+#     print(range(queries[i][0], queries[i][1]))
+
+# 글자 지우기
+
+
+def solution(my_string, indices):
+    answer = ""
+    return answer
+
+
+my_string = "apporoograpemmemprs"
+str_lst = list(my_string)
+indices = [1, 16, 6, 15, 0, 10, 11, 3]
+indices_reindex = list(range(len(indices)))
+print(indices_reindex)
+print(str_lst)
+for i in indices:
+    str_lst.remove(str_lst[i])
+print(str_lst)
+
+# 세로 읽기 더 개선하기
+my_string = "ihrhbakrfpndopljhygc"
+m = 4
+c = 2
+answer = ""
+for i in range(c - 1, len(my_string), m):
+    answer += my_string[i]
+
+
+print(answer)
+
+# ihrh
+# bakr
+# fpnd
+# oplj
+# hygc
+
+# 세로 읽기 개선하기 리스트 슬라이스
+my_string = "ihrhbakrfpndopljhygc"
+m = 4
+c = 2
+print(my_string[c - 1 :: m])
+
+# 세로 읽기
+my_string = "ihrhbakrfpndopljhygc"
+# for i in range(0, len(my_string), 4):
+
+# for j in range(0, len(my_string) // 4):
+m = 4
+c = 2
+answer = []
+lth = len(my_string)
+for i in range(c - 1, m):
+    result = ""
+    for j in range(0, lth, m):
+        result += my_string[i + j]
+    answer.append(result)
+
+print(answer[0])
+# ihrh
+# bakr
+# fpnd
+# oplj
+# hygc
+# 이차원 배열 대각선 순회하기
+def solution(board, k):
+    answer = 0
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if i + j <= k:
+                answer += board[i][j]
+    return answer
+
+
+print(solution([[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]], 2))
+# 하샤드 수 개선하기
+def solution(n):
+    return n % sum(map(int, str(n))) == 0
+
+
+print(solution(10))
+print(solution(11))
+print(solution(12))
+print(solution(13))
+
+# 하샤드 수
+def solution(n):
+    return True if n % sum(map(int, str(n))) == 0 else False
+
+
+print(solution(10))
+print(solution(11))
+print(solution(12))
+print(solution(13))
+# 정수 제곱근 판별
+def solution(n):
+    if str(pow(n, 0.5)).isdigit():
+        return int(pow(pow(n, 0.5) + 1, 2))
+    else:
+        return -1
+
+
+print(pow(121, 0.5))
+print(pow(3, 0.5))
+print(solution(121))
+print(solution(3))
+# 정수 내림차순으로 배치하기 더 개선하기
+
+
+def solution(n):
+    return int("".join(sorted(str(n), reverse=True)))
+
+
+print(solution(118372))
+# 정수 내림차순으로 배치하기 개선하기
+
+
+def solution(n):
+    lst = list(str(n))
+    lst.sort(reverse=True)
+
+    return int("".join(lst))
+
+
+print(solution(118372))
+# 정수 내림차순으로 배치하기
+
+
+def solution(n):
+    answer = ""
+    for i in list(map(str, sorted(str(n), reverse=True))):
+        answer += i
+    return int(answer)
+
+
+print(solution(118372))
+
+# 자연수 뒤집어 배열로 만들기 개선하기
+
+
+def solution(n):
+    return list(map(int, reversed(str(n))))
+
+
+print(solution(12345))
+
+# 자연수 뒤집어 배열로 만들기
+
+
+def solution(n):
+    answer = []
+    for i in list(str(n)):
+        answer.append(int(i))
+    answer.reverse()
+    return answer
+
+
+print(solution(12345))
+
 
 # 문자열 내 p와 y의 개수 개선하기
 def solution(s):
     return s.lower().count("p") == s.lower().count("y")
 
-
 s = "pPoooyY"
 
 print(solution(s))
 
-"""   
 # 문자열 내 p와 y의 개수
 def solution(s):
     count_p = 0

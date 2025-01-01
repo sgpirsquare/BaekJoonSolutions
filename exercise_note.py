@@ -18,6 +18,13 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+# 20492
+N = int(input())
+print(int(N * 0.78), int(N * 0.8 + N * 0.2 * 0.78))
+""" 
+# 15733
+print("I'm Sexy")
+
 # 10173
 from sys import stdin
 
@@ -31,7 +38,6 @@ while True:
         break
 
 
-""" 
 #22864
 A, B, C, M =int(input())
 
