@@ -18,10 +18,98 @@
 
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
+
+# 28431 다른 풀이 set말고 list 연산으로
+
+socks = []
+for _ in range(5):
+    sock = int(input())
+    socks.remove(sock) if sock in socks else socks.append(sock)
+print(socks[0])
+"""
+# 28431 다른 풀이 참고함 XOR 연산
+ans = 0
+for i in range(0, 5):
+    ans = ans ^ int(input())
+print(ans)
+
+XOR은 이진수(비트) 연산자 
+
+컴퓨터는 모든 숫자를 내부적으로 이진수로 처리하기 때문에, XOR(^)도 이진수 기준으로 연산이 이뤄짐
+두 비트가 다르면 1
+두 비트가 같으면 0
+예를 들어 1^2=3인 이유는
+
+  01 (1)
+^ 10 (2)
+-----
+  11 (3)
+
+XOR의 주요 특징을 보면:
+이진수로 변환해서 연산하는 과정에서 나오는 성질임
+1. 같은 수와 XOR하면 0이 됨 (A^A = 0)
+2. 0과 XOR하면 원래 수가 나옴 (A^0 = A)
+3. XOR 연산은 순서에 상관없음 (A^B^C = C^A^B)
+
+이 문제에서 XOR을 사용한 이유는:
+- 짝이 있는 숫자(2개씩 있는 숫자)는 서로 XOR하면 0이 되고
+- 혼자 남은 숫자만 결과값으로 남기 때문
+
+예를 들어 [1,1,3,3,1] 이라면:
+1. 1^1^3^3^1
+2. 0^3^3^1 (1^1 = 0)
+3. 0^0^1 (3^3 = 0)
+4. 1 (0^1 = 1)
+
+이렇게 짝이 없는 1이 최종 결과로 나오게 됨.
+
+
+# 28431 구글링함 스택?자료구조로 해결함 더 단순한 방법이 왜 안 통할까... 아... 1 1 1 3 3 반례때문에 안 되네
+socks = set()
+result = 0
+for _ in range(5):
+    sock = int(input())
+    if sock in socks:
+        result -= sock
+        socks.discard(sock)
+    else:
+        socks.add(sock)
+        result += sock
+
+print(result)
+
+
+# 28431 내가 처음 생각했던 코드 아...1 1 1 3 3 같은 반례때문에 안 되네네
+socks = []
+for _ in range(5):
+    socks.append(int(input()))
+socks.sort()
+
+
+print(socks[4] if socks[0] == socks[1] else socks[0])
+
+# 11721
+sentence = list(input())
+for i in range(10):
+    print(sentence[i], end="")
+print("\n")
+for i in range(10, len(sentence)):
+    print(sentence[i], end="")
+    
+# 26545 개선하기
+N = int(input())
+result = sum(map(int, (input() for _ in range(N))))
+print(sum)
+# 26545
+N = int(input())
+sum = 0
+for _ in range(N):
+    number = int(input())
+    sum += number
+print(sum)
 # 20492
 N = int(input())
 print(int(N * 0.78), int(N * 0.8 + N * 0.2 * 0.78))
-""" 
 # 15733
 print("I'm Sexy")
 
