@@ -9,7 +9,37 @@
 # pylance 오류메시지 끄기
 # pyright: reportInvalidStringEscapeSequence=false
 ########################################################
+"""   
+# 문자열이 몇 번 등장하는지 세기 개선하기 다른 사람의 풀이를 토대로 enumerate startswith
+def solution(myString, pat):
+    count = 0
+    for i, x in enumerate(myString):
+        if myString[i:].startswith(pat):
+            count += 1
+    return count
 
+
+# 문자열이 몇 번 등장하는지 세기
+def solution(myString, pat):
+    count = 0
+    for i in range(len(myString) - len(pat) + 1):
+        if myString[i : i + len(pat)] == pat:
+            count += 1
+    return count
+
+
+# myString = "bananabananabanana"
+# pat = "ana"
+# count = 0
+# print(myString[0:3])
+# print(myString[1:4])
+# print(myString[2:5])
+# print(myString[3:6])
+
+# for i in range(len(myString) - len(pat) + 1):
+#     if myString[i : i + len(pat)] == pat:
+#         count += 1
+# print(count)
 # 빈 배열에 추가, 삭제하기 개선하기
 
 
@@ -29,7 +59,6 @@ arra = [3, 2, 4, 1, 3]
 flags = [True, False, True, False, False]
 
 print(solution(arra, flags))
-"""   
 
 # 빈 배열에 추가, 삭제하기
 

@@ -19,6 +19,19 @@
 3. 이 코드문서파일은 2020년 (키워드 'since 2020')에 잠시 기록했다가 2024년 4/4분기에 거의 70% 이상 내용이 채워졌습니다.
 """
 
+
+"""
+# 11721 개선하기
+sentence = input()
+for i in range(0, len(sentence), 10):
+    print(sentence[i : i + 10])
+
+# 11721 슬라이스 아이디어 간단한건데 어제는 생각이 안났음
+sentence = input()
+sen_length = len(sentence)
+# 이 기법이 너무 자주 쓰이네 n-1 // 10 + 1
+for i in range((sen_length - 1) // 10 + 1):
+    print(sentence[i * 10 : (i + 1) * 10])
 # 28431 다른 풀이 set말고 list 연산으로
 
 socks = []
@@ -26,7 +39,6 @@ for _ in range(5):
     sock = int(input())
     socks.remove(sock) if sock in socks else socks.append(sock)
 print(socks[0])
-"""
 # 28431 다른 풀이 참고함 XOR 연산
 ans = 0
 for i in range(0, 5):
@@ -88,13 +100,6 @@ socks.sort()
 
 print(socks[4] if socks[0] == socks[1] else socks[0])
 
-# 11721
-sentence = list(input())
-for i in range(10):
-    print(sentence[i], end="")
-print("\n")
-for i in range(10, len(sentence)):
-    print(sentence[i], end="")
     
 # 26545 개선하기
 N = int(input())
